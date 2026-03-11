@@ -20,8 +20,6 @@
     --dusty-blue: #7a9bab;
     --gold:       #b8892a;
     --fly-accent: #2C5F8A;
-    --train-accent:#2C7A5A;
-    --danger:     #8B2635;
     --rule:       #d4c9b5;
     --warm-bg:    #faf7f2;
     --paper:      #f4efe6;
@@ -182,46 +180,6 @@
     margin:12px auto 0;
   }
 
-  /* ─── ACTION BANNER ─── */
-  .action-banner {
-    background: #8B2635;
-    color: white;
-    text-align: center;
-    padding: 16px 24px;
-    opacity: 0;
-    animation: fadeIn 0.6s ease 0.9s forwards;
-  }
-
-  .action-banner-inner {
-    display: inline-flex;
-    align-items: center;
-    gap: 14px;
-    flex-wrap: wrap;
-    justify-content: center;
-  }
-
-  .action-icon {
-    font-size: 22px;
-    flex-shrink: 0;
-  }
-
-  .action-text {
-    font-family: 'Source Serif 4', serif;
-    font-size: 17px;
-    font-weight: 600;
-    letter-spacing: 0.04em;
-  }
-
-  .action-deadline {
-    font-family: 'Source Serif 4', serif;
-    font-size: 14px;
-    font-weight: 300;
-    opacity: 0.88;
-    letter-spacing: 0.06em;
-    border-left: 1px solid rgba(255,255,255,0.35);
-    padding-left: 14px;
-  }
-
   /* ─── INTRO ─── */
   .intro {
     background: var(--parchment);
@@ -279,7 +237,6 @@
     border-bottom:2px solid var(--rule);
   }
   .compare-table th.fly-head   { background:var(--fly-accent); color:white; border-radius:6px 6px 0 0; }
-  .compare-table th.train-head { background:var(--train-accent); color:white; border-radius:6px 6px 0 0; }
   .compare-table th.label-head {
     background:transparent; color:var(--muted);
     font-family:'Source Serif 4', serif;
@@ -299,73 +256,14 @@
     color:var(--muted); width:26%;
   }
 
-  .highlight-fly   { color:var(--fly-accent); font-weight:600; }
-  .highlight-train { color:var(--train-accent); font-weight:600; }
+  .highlight-fly { color:var(--fly-accent); font-weight:600; }
 
   .tag {
     display:inline-block; font-size:10px; font-weight:600;
     letter-spacing:0.08em; text-transform:uppercase;
     padding:2px 8px; border-radius:3px; margin-left:6px; vertical-align:middle;
   }
-  .tag-good { background:#e8f5ee; color:var(--train-accent); }
-  .tag-warn { background:#fef6e4; color:#8a5c0a; }
-
-  /* ─── PRO/CON CARDS ─── */
-  .option-cards { display:grid; grid-template-columns:1fr 1fr; gap:28px; }
-  @media (max-width:640px) { .option-cards { grid-template-columns:1fr; } }
-
-  .option-card { border:1px solid var(--rule); border-radius:8px; overflow:hidden; }
-
-  .card-header { padding:18px 22px 14px; color:white; }
-  .card-header.fly   { background:var(--fly-accent); }
-  .card-header.train { background:var(--train-accent); }
-  .card-header .option-name { font-family:'Playfair Display', serif; font-size:18px; font-weight:700; }
-  .card-header .option-sub  { font-size:12px; opacity:0.8; margin-top:2px; font-weight:300; }
-
-  .card-body { background:white; padding:20px 22px; }
-  .pro-con-group { margin-bottom:18px; }
-  .pro-con-group:last-child { margin-bottom:0; }
-
-  .pro-con-label {
-    font-size:10px; font-weight:700;
-    letter-spacing:0.14em; text-transform:uppercase; margin-bottom:10px;
-  }
-  .pro-con-label.pros { color:var(--train-accent); }
-  .pro-con-label.cons { color:var(--danger); }
-
-  .pro-con-list { list-style:none; padding:0; }
-  .pro-con-list li {
-    font-size:14px; line-height:1.5;
-    padding:5px 0 5px 22px; position:relative;
-    border-bottom:1px solid rgba(212,201,181,0.35); color:#2a2520;
-  }
-  .pro-con-list li:last-child { border-bottom:none; }
-  .pro-con-list li::before { position:absolute; left:0; top:7px; font-size:13px; }
-  .pros-list li::before { content:'✓'; color:var(--train-accent); font-weight:700; }
-  .cons-list li::before { content:'×'; color:var(--danger); font-weight:700; }
-
-  /* ─── VERDICT ─── */
-  .verdict {
-    background:var(--ink); color:var(--warm-bg);
-    padding:48px 24px; border-bottom:none;
-    opacity:0; animation:fadeUp 0.7s ease 1.35s forwards;
-  }
-  .verdict h2 { color:var(--warm-bg); margin-bottom:20px; }
-
-  .verdict-body {
-    max-width:660px; font-size:16px; line-height:1.75;
-    color:rgba(250,247,242,0.85); margin-bottom:24px;
-  }
-  .verdict-body strong { color:var(--warm-bg); }
-
-  .verdict-lean {
-    display:inline-block;
-    background:rgba(255,255,255,0.07);
-    border-left:3px solid var(--gold);
-    padding:14px 20px; font-size:15px; font-style:italic;
-    color:rgba(250,247,242,0.75);
-    border-radius:0 4px 4px 0; max-width:620px;
-  }
+  .tag-good { background:#e8f5ee; color:#2C7A5A; }
 
   /* ─── FOOTER ─── */
   footer {
@@ -447,19 +345,10 @@
   </div>
 </header>
 
-<!-- ACTION REQUIRED BANNER -->
-<div class="action-banner">
-  <div class="action-banner-inner">
-    <span class="action-icon">⚠️</span>
-    <span class="action-text">ACTION REQUIRED</span>
-    <span class="action-deadline">Response needed by Wednesday, March 11</span>
-  </div>
-</div>
-
 <!-- INTRO -->
 <div class="intro">
   <div class="wrap">
-    <p>We need to move the group of 7 from the villa near Ostuni to Arezzo on June 1, where we pick up rental cars and settle in. A 6:30 AM flight was considered and dropped &mdash; a 4:30 AM villa departure is a non-starter. Two realistic options remain.</p>
+    <p>On the morning of June 1, the villa gives way to the road. The group departs at 8:30 &mdash; bags loaded, Puglia behind us &mdash; bound for Bari Airport and a flight north through Rome. AZ1612 and AZ1677 carry everyone to Florence by mid-afternoon, where rental cars await steps from the gate. Arezzo by evening.</p>
   </div>
 </div>
 
@@ -467,155 +356,62 @@
 
   <!-- COMPARISON TABLE -->
   <section>
-    <div class="section-label">At a Glance</div>
-    <h2>Side-by-Side Comparison</h2>
+    <div class="section-label">The Journey</div>
+    <h2>June 1 &mdash; Flight Day</h2>
     <div style="overflow-x:auto;">
       <table class="compare-table">
         <thead>
           <tr>
             <th class="label-head"></th>
-            <th class="fly-head">✈ Option A &mdash; Fly</th>
-            <th class="train-head">🚄 Option B &mdash; Train</th>
+            <th class="fly-head">✈ Bari BRI &nbsp;&rarr;&nbsp; Rome FCO &nbsp;&rarr;&nbsp; Florence FLR</th>
           </tr>
         </thead>
         <tbody>
           <tr>
-            <td class="row-label">Service</td>
-            <td>AZ1612 → Rome FCO → AZ1677 → Florence FLR</td>
-            <td>Frecciarossa 8818 (1 transfer)</td>
-          </tr>
-          <tr>
             <td class="row-label">Depart Villa</td>
-            <td><strong>8:30 AM</strong> <span class="tag tag-good">Later start</span></td>
-            <td><strong>6:45 AM</strong></td>
+            <td><strong>8:30 AM</strong></td>
           </tr>
           <tr>
-            <td class="row-label">Depart Bari</td>
-            <td>11:20 AM &nbsp;<em style="font-size:13px;color:var(--muted)">BRI Airport</em></td>
-            <td>9:30 AM &nbsp;<em style="font-size:13px;color:var(--muted)">Bari Centrale</em></td>
+            <td class="row-label">Flight 1</td>
+            <td>AZ1612 &nbsp;&middot;&nbsp; Departs BRI <strong>11:20 AM</strong></td>
           </tr>
           <tr>
-            <td class="row-label">Layover / Transfer</td>
-            <td>Rome FCO &mdash; 1 hr 20 min <span class="tag tag-warn">Tight</span></td>
-            <td>1 transfer en route</td>
+            <td class="row-label">Layover</td>
+            <td>Rome FCO &mdash; 1 hr 20 min</td>
+          </tr>
+          <tr>
+            <td class="row-label">Flight 2</td>
+            <td>AZ1677 &nbsp;&middot;&nbsp; Departs FCO onward to Florence</td>
           </tr>
           <tr>
             <td class="row-label">Arrive Florence</td>
             <td><span class="highlight-fly">2:45 PM</span> &nbsp;<em style="font-size:13px;color:var(--muted)">FLR Airport</em></td>
-            <td><span class="highlight-train">4:24 PM</span> &nbsp;<em style="font-size:13px;color:var(--muted)">SMN Station</em></td>
           </tr>
           <tr>
             <td class="row-label">Car Rental</td>
-            <td>On-site at FLR &mdash; ~30 min <span class="tag tag-good">No ZTL</span></td>
-            <td>10-min walk &mdash; ~45 min <span class="tag tag-warn">ZTL risk</span></td>
+            <td>On-site at FLR &mdash; ~30 min &nbsp;<span class="tag tag-good">No ZTL</span></td>
           </tr>
           <tr>
             <td class="row-label">Depart Florence</td>
             <td>~3:30 PM</td>
-            <td>~5:30 PM</td>
           </tr>
           <tr>
-            <td class="row-label">Est. Arrive Arezzo</td>
-            <td><strong style="color:var(--fly-accent)">~4:45 PM</strong> <span class="tag tag-good">Earlier</span></td>
-            <td><strong>~6:30 PM</strong></td>
+            <td class="row-label">Arrive Arezzo</td>
+            <td><strong style="color:var(--fly-accent)">~4:45 PM</strong></td>
           </tr>
           <tr>
             <td class="row-label">Cost (7 pax)</td>
             <td>~$1,363 &nbsp;<em style="font-size:13px;color:var(--muted)">(~$195/person)</em></td>
-            <td>~$700 &nbsp;<em style="font-size:13px;color:var(--muted)">(~$100/person)</em> <span class="tag tag-good">Saves ~$95/pp</span></td>
-          </tr>
-          <tr>
-            <td class="row-label">Front-end Logistics</td>
-            <td>Everyone to BRI Airport together &mdash; clean</td>
-            <td>Guests to station; 2 drivers return cars to BRI, taxi back (~45 min)</td>
           </tr>
         </tbody>
       </table>
     </div>
   </section>
 
-  <!-- PRO / CON CARDS -->
-  <section>
-    <div class="section-label">Detailed Breakdown</div>
-    <h2>Pros &amp; Cons</h2>
-    <div class="option-cards">
-
-      <div class="option-card">
-        <div class="card-header fly">
-          <div class="option-name">✈ Option A &mdash; Fly</div>
-          <div class="option-sub">BRI → Rome FCO → Florence FLR &nbsp;|&nbsp; 11:20 AM departure</div>
-        </div>
-        <div class="card-body">
-          <div class="pro-con-group">
-            <div class="pro-con-label pros">Pros</div>
-            <ul class="pro-con-list pros-list">
-              <li>Earlier Arezzo arrival (~4:45 PM) &mdash; time to settle before dinner</li>
-              <li>Airport car rental: on-site, no ZTL exposure in Florence</li>
-              <li>Cleaner morning: full group stays together at BRI</li>
-              <li>Later villa departure &mdash; 8:30 AM is a civilized start</li>
-            </ul>
-          </div>
-          <div class="pro-con-group">
-            <div class="pro-con-label cons">Cons</div>
-            <ul class="pro-con-list cons-list">
-              <li>Rome FCO layover is 1 hr 20 min &mdash; workable, but a first-leg delay misses the connection</li>
-              <li>More expensive: ~$95/person more than the train</li>
-              <li>Economy fare likely restricted &mdash; no changes, no refunds; verify before booking</li>
-              <li>Baggage check-in and security for the full group</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-      <div class="option-card">
-        <div class="card-header train">
-          <div class="option-name">🚄 Option B &mdash; Train</div>
-          <div class="option-sub">Frecciarossa 8818, Bari → Florence SMN &nbsp;|&nbsp; 9:30 AM departure</div>
-        </div>
-        <div class="card-body">
-          <div class="pro-con-group">
-            <div class="pro-con-label pros">Pros</div>
-            <ul class="pro-con-list pros-list">
-              <li>Saves ~$660 for the group (~$95/person less)</li>
-              <li>No connection to miss &mdash; a delay doesn't strand anyone</li>
-              <li>No baggage claim, no security lines &mdash; board and go</li>
-              <li>Frecciarossa is a scenic, comfortable ride through southern Italy</li>
-            </ul>
-          </div>
-          <div class="pro-con-group">
-            <div class="pro-con-label cons">Cons</div>
-            <ul class="pro-con-list cons-list">
-              <li>6:45 AM villa departure &mdash; early morning for the group</li>
-              <li>Split front-end: 2 drivers must return cars to BRI and taxi back (~45 min round trip)</li>
-              <li>Later Arezzo arrival (~6:30 PM) &mdash; less time before dinner</li>
-              <li>ZTL risk at Florence SMN car rental pickup &mdash; requires careful navigation</li>
-            </ul>
-          </div>
-        </div>
-      </div>
-
-    </div>
-  </section>
-
 </main>
 
-<!-- VERDICT -->
-<section class="verdict">
-  <div class="wrap">
-    <div class="section-label">Recommendation</div>
-    <h2>Bottom Line</h2>
-    <div class="verdict-body">
-      <strong>Option A (Fly)</strong> is the smoother travel day &mdash; later villa departure, cleaner car rental logistics, and 90 minutes more time in Arezzo before dinner. The Rome connection at 1h 20m is the one real risk; it's workable but worth knowing. The cost premium is modest at ~$95/person.<br><br>
-      <strong>Option B (Train)</strong> saves meaningful money and eliminates connection anxiety, but asks for an early morning and delivers you to Arezzo later in the evening.
-    </div>
-    <div class="verdict-lean">
-      Dave's lean: Option A &mdash; the logistics and earlier arrival are worth the cost difference for this group. But happy to be outvoted. Reply with your preference.
-    </div>
-  </div>
-</section>
-
 <footer>
-  <a href="index.html">Italy 2026</a> &nbsp;·&nbsp; Puglia → Arezzo Transfer &nbsp;·&nbsp; June 1 &nbsp;·&nbsp; Booking window open — prices may shift
+  <a href="index.html">Italy 2026</a> &nbsp;·&nbsp; Puglia → Arezzo Transfer &nbsp;·&nbsp; June 1 &nbsp;·&nbsp; AZ1612 &amp; AZ1677 confirmed
 </footer>
 
 </body>
