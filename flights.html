@@ -415,6 +415,41 @@
   /* ─── FULL-WIDTH CARD (transfer uses single card spanning grid) ─── */
   .span-full { grid-column: 1 / -1; }
 
+  /* ─── TRANSFER DAY ROWS ─── */
+  .pre-flight {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px 20px;
+    background: var(--parchment);
+    border-bottom: 1px solid var(--rule);
+    font-size: 14px;
+  }
+  .pre-label { color: var(--muted); font-style: italic; }
+  .pre-value { font-family: 'Cormorant Garamond', serif; font-size: 18px; color: var(--ink); font-weight: 400; }
+
+  .post-arrival {
+    border-top: 1px solid var(--rule);
+    padding: 4px 0;
+  }
+  .post-row {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 7px 20px;
+    font-size: 14px;
+    border-bottom: 1px solid var(--border-light, #eee);
+  }
+  .post-row:last-child { border-bottom: none; }
+  .post-label { color: var(--muted); font-style: italic; }
+  .post-value { color: var(--ink); font-weight: 400; }
+  .post-row.highlight .post-value {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    color: var(--terracotta);
+    font-weight: 600;
+  }
+
   /* ─── NOTE CALLOUT ─── */
   .note-callout {
     background: #faf7f0;
@@ -429,7 +464,7 @@
 
   /* ─── FOOTER ─── */
   footer {
-    background: var(--ink);
+    background: #5c3420;
     color: rgba(250,247,240,0.4);
     text-align: center;
     padding: 24px;
@@ -456,7 +491,6 @@
 <nav class="site-nav">
   <a href="index.html" class="site-nav-home">← Italy 2026</a>
   <div class="site-nav-links">
-    <a href="transfer.html">✈ Transfer Options</a>
     <a href="accommodations.html">🏡 Accommodations</a>
     <a href="calendar.html">📅 Calendar</a>
     <a href="flights.html" class="active">✈ Flights</a>
@@ -510,7 +544,7 @@
       <div class="flight-card">
         <div class="fc-accent outbound"></div>
         <div class="fc-header">
-          <span class="fc-travelers">Dave M &amp; Mike F</span>
+          <span class="fc-travelers">Dave &amp; Mike</span>
           <div class="fc-meta">
             <span class="fc-booking">76EY4E</span>
             <span class="fc-date">May 10 – 11</span>
@@ -550,7 +584,7 @@
       <div class="flight-card">
         <div class="fc-accent outbound"></div>
         <div class="fc-header">
-          <span class="fc-travelers">Jane &amp; Chuck G</span>
+          <span class="fc-travelers">Jane &amp; Chuck</span>
           <div class="fc-meta">
             <span class="fc-booking">JO4YRG · ALJ6HX</span>
             <span class="fc-date">May 20 – 21</span>
@@ -583,13 +617,13 @@
 
       <!-- Dave W & Teresa W — TBD -->
       <div class="tbd-card">
-        <span class="tbd-name">Dave W &amp; Teresa W</span>
+        <span class="tbd-name">Dave &amp; Teresa</span>
         <span class="tbd-note">Flight details coming soon</span>
       </div>
 
-      <!-- Mary F — TBD -->
+      <!-- Mary — TBD -->
       <div class="tbd-card">
-        <span class="tbd-name">Mary F</span>
+        <span class="tbd-name">Mary</span>
         <span class="tbd-note">Flight details coming soon</span>
       </div>
 
@@ -611,6 +645,11 @@
 
       <div class="transfer-card span-full">
         <div class="fc-accent transfer"></div>
+
+        <div class="pre-flight">
+          <span class="pre-label">Depart Villa</span>
+          <span class="pre-value">8:30 AM</span>
+        </div>
 
         <div class="transfer-route">
           <div class="segment" style="padding-left:0; padding-right:0; padding-bottom:0;">
@@ -640,11 +679,26 @@
         <div class="transfer-bookings">
           <div class="booking-group">
             <span class="bg-code">XRSWDK</span>
-            <span class="bg-names">Dave M · Mike F · Mary F</span>
+            <span class="bg-names">Dave · Mike · Mary</span>
           </div>
           <div class="booking-group">
             <span class="bg-code">XRZC7M</span>
-            <span class="bg-names">Jane G · Chuck G · Dave W · Teresa W</span>
+            <span class="bg-names">Jane · Chuck · Dave · Teresa</span>
+          </div>
+        </div>
+
+        <div class="post-arrival">
+          <div class="post-row">
+            <span class="post-label">Car Rental</span>
+            <span class="post-value">On-site at FLR · ~30 min</span>
+          </div>
+          <div class="post-row">
+            <span class="post-label">Depart Florence</span>
+            <span class="post-value">~3:30 PM</span>
+          </div>
+          <div class="post-row highlight">
+            <span class="post-label">Arrive Arezzo</span>
+            <span class="post-value">~4:45 PM</span>
           </div>
         </div>
       </div>
@@ -668,7 +722,7 @@
       <div class="flight-card">
         <div class="fc-accent return"></div>
         <div class="fc-header">
-          <span class="fc-travelers">Jane &amp; Chuck G</span>
+          <span class="fc-travelers">Jane &amp; Chuck</span>
           <div class="fc-meta">
             <span class="fc-booking">JO4YRG</span>
             <span class="fc-date">June 10</span>
@@ -703,7 +757,7 @@
       <div class="flight-card">
         <div class="fc-accent return"></div>
         <div class="fc-header">
-          <span class="fc-travelers">Dave M &amp; Mike F</span>
+          <span class="fc-travelers">Dave &amp; Mike</span>
           <div class="fc-meta">
             <span class="fc-booking">76EY4E</span>
             <span class="fc-date">June 22</span>
@@ -741,20 +795,20 @@
 
       <!-- Dave W & Teresa W — TBD -->
       <div class="tbd-card">
-        <span class="tbd-name">Dave W &amp; Teresa W</span>
+        <span class="tbd-name">Dave &amp; Teresa</span>
         <span class="tbd-note">Return flight details coming soon</span>
       </div>
 
-      <!-- Mary F — TBD -->
+      <!-- Mary — TBD -->
       <div class="tbd-card">
-        <span class="tbd-name">Mary F</span>
+        <span class="tbd-name">Mary</span>
         <span class="tbd-note">Return flight details coming soon</span>
       </div>
 
     </div>
 
     <div class="note-callout">
-      Jane &amp; Chuck G depart Florence June 10 — 12 days before the rest of the group.
+      Jane &amp; Chuck depart Florence June 10 — 12 days before the rest of the group.
     </div>
   </section>
 
