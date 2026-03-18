@@ -176,6 +176,32 @@
   }
   .dm-message p:last-child { margin-bottom: 0; }
   .dm-message a { color: var(--terracotta); }
+  .dm-excursion-list {
+    display: flex;
+    gap: 24px;
+    margin: 4px 0 16px;
+    flex-wrap: wrap;
+  }
+  .dm-excursion-group {
+    flex: 1;
+    min-width: 200px;
+    background: rgba(255,255,255,0.5);
+    border: 1px solid var(--warm-rule);
+    border-radius: 5px;
+    padding: 10px 14px;
+  }
+  .dm-excursion-region {
+    font-family: 'Cormorant SC', serif;
+    font-size: 9px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 5px;
+  }
+  .dm-excursion-items {
+    font-size: 14px; color: var(--ink); line-height: 1.6;
+  }
+  .dm-overnight {
+    font-size: 12px; color: var(--terracotta);
+    font-style: italic;
+  }
 
   /* ─── PAGE BODY ─── */
   .page-body {
@@ -381,8 +407,19 @@
   <div class="dm-message">
     <div class="dm-message-eyebrow">From Dave &amp; Mike</div>
     <p>Hey everyone! Mike and I have been poking around the excursion options for both Ostuni and Arezzo, and we wanted to share what's on our radar — partly to get you excited, and partly to do a little light coordinating.</p>
-    <p>You can see the full list below.daveandmike.net/excursions.html</a> — we'd love for you to take a peek and let us know if any of them appeal to you. If they do, we'll try to schedule them on a day when you're with us.</p>
-    <p>Two of them — Matera (from Ostuni) and Castello di Verrazzano (from Arezzo) — require overnight stays, so we need to get reservations sorted sooner rather than later. If either of those interest you, could you let us know as soon as posible (Sunday?) but would appreciate it by Wednesday, March 25th? No pressure on the day trips — those are easy to figure out closer to the time.</p>
+    <p>Here's what we have our eye on:</p>
+    <div class="dm-excursion-list">
+      <div class="dm-excursion-group">
+        <div class="dm-excursion-region">From Ostuni</div>
+        <div class="dm-excursion-items">Alberobello · Polignano a Mare · Matera <span class="dm-overnight">(overnight)</span></div>
+      </div>
+      <div class="dm-excursion-group">
+        <div class="dm-excursion-region">From Arezzo</div>
+        <div class="dm-excursion-items">Anghiari · Montepulciano · Castello di Verrazzano <span class="dm-overnight">(overnight)</span></div>
+      </div>
+    </div>
+    <p>We'd love for you to take a peek at the full listings below and let us know if any of them appeal to you. If they do, we'll try to schedule them on a day when you're with us.</p>
+    <p>Two of them — Matera (from Ostuni) and Castello di Verrazzano (from Arezzo) — require overnight stays, so we need to get reservations sorted sooner rather than later. If either of those interest you, could you let us know as soon as possible (Sunday?) but would appreciate it by Wednesday, March 25th? No pressure on the day trips — those are easy to figure out closer to the time.</p>
     <p>Just shoot us a message in the group chat — that's the easiest way to keep track. 🇮🇹</p>
   </div>
 
