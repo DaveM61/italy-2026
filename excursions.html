@@ -203,6 +203,52 @@
     font-style: italic;
   }
 
+  /* ─── ITINERARY LINKS BLOCK ─── */
+  .itinerary-links-box {
+    margin-bottom: 48px;
+  }
+  .itinerary-link-list {
+    list-style: none;
+    margin: 14px 0 4px;
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+  }
+  .itinerary-link-list li {
+    display: flex;
+    align-items: baseline;
+    gap: 12px;
+    flex-wrap: wrap;
+    padding-bottom: 12px;
+    border-bottom: 1px solid var(--warm-rule);
+  }
+  .itinerary-link-list li:last-child {
+    border-bottom: none;
+    padding-bottom: 0;
+  }
+  .itinerary-link-list a {
+    font-family: 'Playfair Display', serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--terracotta);
+    text-decoration: none;
+  }
+  .itinerary-link-list a:hover { text-decoration: underline; }
+  .itin-meta {
+    font-size: 14px;
+    color: var(--muted);
+    font-style: italic;
+    line-height: 1.4;
+  }
+  .itin-region {
+    font-family: 'Cormorant SC', serif;
+    font-size: 12px;
+    font-style: normal;
+    letter-spacing: 0.1em;
+  }
+  .itin-region.puglia  { color: var(--puglia); }
+  .itin-region.tuscany { color: var(--tuscany); }
+
   /* ─── PAGE BODY ─── */
   .page-body {
     max-width: 860px;
@@ -403,24 +449,27 @@
 <!-- PAGE BODY -->
 <div class="page-body">
 
-  <!-- D&M INTRO MESSAGE -->
-  <div class="dm-message">
-    <div class="dm-message-eyebrow">From Dave &amp; Mike</div>
-    <p>Hey everyone! Mike and I have been poking around the excursion options for both Ostuni and Arezzo, and we wanted to share what's on our radar — partly to get you excited, and partly to do a little light coordinating.</p>
-    <p>Here's what we have our eye on:</p>
-    <div class="dm-excursion-list">
-      <div class="dm-excursion-group">
-        <div class="dm-excursion-region">From Ostuni</div>
-        <div class="dm-excursion-items">Alberobello · Polignano a Mare · Matera <span class="dm-overnight">(overnight)</span></div>
-      </div>
-      <div class="dm-excursion-group">
-        <div class="dm-excursion-region">From Arezzo</div>
-        <div class="dm-excursion-items">Anghiari · Montepulciano · Castello di Verrazzano <span class="dm-overnight">(overnight)</span></div>
-      </div>
-    </div>
-    <p>We'd love for you to take a peek at the full listings below and let us know if any of them appeal to you. If they do, we'll try to schedule them on a day when you're with us.</p>
-    <p>Two of them — Matera (from Ostuni) and Castello di Verrazzano (from Arezzo) — require overnight stays, so we need to get reservations sorted sooner rather than later. If either of those interest you, could you let us know as soon as possible (Sunday?) but would appreciate it by Wednesday, March 25th? No pressure on the day trips — those are easy to figure out closer to the time.</p>
-    <p>Just shoot us a message in the group chat — that's the easiest way to keep track. 🇮🇹</p>
+  <!-- DAY TRIP ITINERARIES -->
+  <div class="dm-message itinerary-links-box">
+    <div class="dm-message-eyebrow">Suggested Day Trip Itineraries</div>
+    <p>A quick note from Dave &amp; Mike: these aren't marching orders. Our goal is simply to do a little legwork before we leave so that once we're there, we can put the phones away, wander, eat well, and just live it. Italy rewards the unhurried — and that's exactly what we're after.</p>
+    <p>That said, a little structure goes a long way in a foreign country. Knowing where to park, which restaurant to book, and roughly how the day flows means fewer decisions on the ground and more time just enjoying the moment. Think of these as a head start, not a schedule.</p>
+    <p>If any of these sound like your kind of day, let us know in the group text — we'll do our best to get it on the calendar. And if you have ideas, restaurant suggestions, or a place we should know about, send those along too. The more input the better.</p>
+    <p>Each itinerary below covers routes, timing, parking, restaurant picks, and logistics — all in one place. More will be added as we finalize the calendar.</p>
+    <ul class="itinerary-link-list">
+      <li>
+        <a href="itria-valley.html">Itria Valley</a>
+        <span class="itin-meta">Alberobello · Locorotondo · Martina Franca &nbsp;·&nbsp; <span class="itin-region puglia">Puglia</span> &nbsp;·&nbsp; Dave M · Mike · Jane · Chuck · Teresa · Dave W</span>
+      </li>
+      <li>
+        <a href="polignano.html">Polignano a Mare &amp; Conversano</a>
+        <span class="itin-meta">Grotta Palazzese · Lama Monachile &nbsp;·&nbsp; <span class="itin-region puglia">Puglia</span> &nbsp;·&nbsp; Dave M · Mike</span>
+      </li>
+      <li>
+        <a href="florence-june5.html">Florence — June 5</a>
+        <span class="itin-meta">Accademia · Oltrarno · Piazzale Michelangelo &nbsp;·&nbsp; <span class="itin-region tuscany">Tuscany</span> &nbsp;·&nbsp; Jane · Chuck · Dave W · Teresa</span>
+      </li>
+    </ul>
   </div>
 
   <!-- ══════════════════════════════════════════
