@@ -249,6 +249,25 @@
   .itin-region.puglia  { color: var(--puglia); }
   .itin-region.tuscany { color: var(--tuscany); }
 
+  /* ─── MATRIX LINK ─── */
+  .matrix-link-row {
+    margin-top: 20px;
+    padding-top: 16px;
+    border-top: 1px solid var(--warm-rule);
+  }
+  .matrix-link-btn {
+    display: inline-flex;
+    align-items: center;
+    gap: 8px;
+    font-family: 'Cormorant SC', serif;
+    font-size: 13px;
+    letter-spacing: 0.14em;
+    color: var(--gold);
+    text-decoration: none;
+    transition: color 0.2s;
+  }
+  .matrix-link-btn:hover { color: var(--terracotta); }
+
   /* ─── PAGE BODY ─── */
   .page-body {
     max-width: 860px;
@@ -470,6 +489,9 @@
         <span class="itin-meta">Accademia · Oltrarno · Piazzale Michelangelo &nbsp;·&nbsp; <span class="itin-region tuscany">Tuscany</span> &nbsp;·&nbsp; Jane · Chuck · Dave W · Teresa</span>
       </li>
     </ul>
+    <div class="matrix-link-row">
+      <a href="matrix.html" class="matrix-link-btn">View Excursion Priority Matrix &rarr;</a>
+    </div>
   </div>
 
   <!-- ══════════════════════════════════════════

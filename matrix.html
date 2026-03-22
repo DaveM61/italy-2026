@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italy 2026 — Excursion Priority Matrix</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cormorant+SC:wght@300;400;600&family=Petit+Formal+Script&family=Playfair+Display:wght@400;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream:      #faf7f0;
+    --parchment:  #f2ece0;
+    --warm-rule:  #ddd0b8;
+    --ink:        #2a2318;
+    --muted:      #7a6e60;
+    --gold:       #b8892a;
+    --terracotta: #c4714a;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Source Serif 4', Georgia, serif; background: var(--cream); color: var(--ink); font-size: 17px; line-height: 1.65; }
+
+  /* ─── SITE NAV ─── */
+  .site-nav { background: #5c3420; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; border-bottom: 2px solid var(--gold); flex-wrap: wrap; }
+  .site-nav-home { font-family: 'Cormorant SC', serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; color: rgba(250,247,242,0.9); text-decoration: none; padding: 14px 0; white-space: nowrap; transition: color 0.2s; }
+  .site-nav-home:hover { color: var(--gold); }
+  .site-nav-links { display: flex; flex-wrap: wrap; }
+  .site-nav-links a { font-family: 'Source Serif 4', serif; font-size: 11px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,247,242,0.5); text-decoration: none; padding: 14px 18px; position: relative; transition: color 0.2s; }
+  .site-nav-links a.active, .site-nav-links a:hover { color: rgba(250,247,242,0.95); }
+  .site-nav-links a.active::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: calc(100% - 24px); height: 2px; background: var(--gold); }
+
+  /* ─── BANNER ─── */
+  .banner { position: relative; width: 100%; height: 140px; overflow: hidden; background: #f5efe3; }
+  .wc-scene { position: absolute; inset: 0; overflow: hidden; }
+  .wc-scene::before { content: ''; position: absolute; inset: 0; background: radial-gradient(ellipse 80% 60% at 70% 20%, rgba(180,210,225,0.45) 0%, transparent 70%), radial-gradient(ellipse 50% 40% at 20% 10%, rgba(210,225,195,0.3) 0%, transparent 60%), linear-gradient(170deg, #f0ece2 0%, #ede4d3 40%, #e8ddc8 100%); }
+  .blob { position: absolute; filter: blur(1px); opacity: 0.15; }
+  .blob-1 { width: 220px; height: 180px; top: -20px; left: -30px; background: #8ab38c; border-radius: 50% 60% 40% 70%/60% 40% 70% 50%; }
+  .blob-2 { width: 160px; height: 200px; top: 10px; left: 60px; background: #c4b98a; border-radius: 40% 60% 55% 45%/55% 45% 65% 35%; }
+  .blob-3 { width: 200px; height: 150px; top: 0; right: 20px; background: #9bbfcc; border-radius: 55% 45% 40% 60%/40% 60% 45% 55%; }
+  .banner-vignette { position: absolute; inset: 0; background: radial-gradient(ellipse 90% 90% at 50% 50%, transparent 55%, rgba(242,236,224,0.6) 100%); pointer-events: none; }
+  .banner-text { position: absolute; inset: 0; display: flex; flex-direction: column; align-items: center; justify-content: center; text-align: center; padding: 20px; opacity: 0; animation: fadeIn 1.2s ease 0.3s forwards; }
+  .banner-eyebrow { font-family: 'Cormorant SC', serif; font-size: 13px; font-weight: 400; letter-spacing: 0.22em; text-transform: uppercase; color: var(--terracotta); margin-bottom: 8px; text-shadow: 0 1px 8px rgba(242,236,224,0.9); }
+  .banner-title { font-family: 'Cormorant SC', serif; font-weight: 300; font-size: clamp(24px, 4vw, 42px); letter-spacing: 0.1em; color: var(--ink); line-height: 1.1; text-shadow: 0 1px 12px rgba(242,236,224,0.9); }
+  .banner-rule { width: 60px; height: 1px; background: linear-gradient(to right, transparent, var(--gold), transparent); margin: 10px auto 0; }
+
+  /* ─── PAGE BODY ─── */
+  .page-body { max-width: 1220px; margin: 0 auto; padding: 44px 28px 80px; opacity: 0; animation: fadeUp 0.7s ease 0.8s forwards; }
+
+  /* ─── BACK LINK ─── */
+  .back-link { font-family: 'Cormorant SC', serif; font-size: 13px; letter-spacing: 0.12em; color: var(--gold); text-decoration: none; display: inline-block; margin-bottom: 28px; }
+  .back-link:hover { color: var(--terracotta); }
+
+  /* ─── LEGEND ─── */
+  .matrix-legend { background: var(--parchment); border: 1px solid var(--warm-rule); border-left: 4px solid var(--gold); border-radius: 8px; padding: 22px 28px; margin-bottom: 32px; }
+  .legend-eyebrow { font-family: 'Cormorant SC', serif; font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase; color: var(--gold); margin-bottom: 14px; }
+  .legend-grid { display: flex; align-items: center; gap: 10px; flex-wrap: wrap; }
+  .legend-item { display: flex; align-items: center; gap: 8px; }
+  .legend-chip { width: 34px; height: 34px; border-radius: 4px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 15px; font-weight: 700; border: 1px solid rgba(0,0,0,0.1); }
+  .legend-label { font-size: 14px; color: var(--muted); white-space: nowrap; }
+  .legend-sep { width: 1px; height: 28px; background: var(--warm-rule); margin: 0 6px; }
+  .legend-note { font-size: 13px; color: var(--muted); font-style: italic; margin-top: 12px; line-height: 1.6; }
+
+  /* ─── MATRIX TABLE ─── */
+  .matrix-wrap { overflow-x: auto; border-radius: 8px; box-shadow: 0 2px 12px rgba(42,35,24,0.08); }
+  .matrix-table { width: 100%; border-collapse: collapse; font-size: 14px; }
+
+  /* Sticky header */
+  .matrix-table thead th { position: sticky; top: 0; z-index: 10; background: #1F3864; color: #ffffff; font-family: 'Cormorant SC', serif; font-size: 12px; letter-spacing: 0.12em; font-weight: 600; text-align: center; padding: 11px 8px; border: 1px solid rgba(255,255,255,0.12); white-space: nowrap; }
+  .matrix-table thead th.th-exc { text-align: left; padding-left: 16px; min-width: 165px; }
+  .matrix-table thead th.th-rgn { min-width: 72px; }
+  .matrix-table thead th.th-dist { min-width: 80px; }
+  .matrix-table thead th.th-time { min-width: 76px; }
+  .matrix-table thead th.th-cost { min-width: 80px; }
+  .matrix-table thead th.th-traveler { min-width: 66px; }
+  .matrix-table thead th.th-n { min-width: 44px; }
+  .matrix-table thead th.th-bw { min-width: 120px; }
+  .host-sub { font-size: 10px; letter-spacing: 0.05em; opacity: 0.65; font-weight: 400; display: block; margin-top: 2px; }
+
+  /* Section header rows */
+  .sec-hdr td { font-family: 'Cormorant SC', serif; font-size: 12px; font-weight: 600; letter-spacing: 0.16em; color: #ffffff; padding: 7px 16px; border: none; }
+
+  /* Data cells */
+  .matrix-table td { padding: 9px 10px; border: 1px solid rgba(0,0,0,0.07); vertical-align: middle; }
+  .exc-name { font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--ink); white-space: nowrap; padding-left: 16px !important; }
+  .rgn-tag { font-family: 'Cormorant SC', serif; font-size: 11px; letter-spacing: 0.1em; text-align: center; }
+  .rgn-tag.rgn-ostuni  { color: #D4760A; }
+  .rgn-tag.rgn-arezzo  { color: #2F5496; }
+  .rgn-tag.rgn-florence { color: #7B2D8B; }
+  .travel { font-size: 13px; color: #2F5496; text-align: center; white-space: nowrap; }
+  .cost-cell { font-size: 12px; color: #7B3306; text-align: center; line-height: 1.5; }
+  .pc { text-align: center; font-family: 'Playfair Display', serif; font-size: 16px; font-weight: 700; }
+  .pc.np { background: #e8e8e8 !important; }
+  .n-int { text-align: center; font-family: 'Playfair Display', serif; font-size: 14px; font-weight: 700; color: var(--ink); }
+  .bw { text-align: center; font-size: 13px; color: #2F5496; font-style: italic; white-space: nowrap; }
+
+  /* Row hover */
+  .matrix-table tbody tr:not(.sec-hdr):hover { filter: brightness(0.955); cursor: default; }
+
+  /* ─── FOOTER ─── */
+  footer { background: #5c3420; border-top: 1px solid rgba(255,255,255,0.08); padding: 22px 24px; text-align: center; font-family: 'Cormorant SC', serif; font-size: 11px; letter-spacing: 0.14em; color: rgba(250,247,242,0.35); }
+  footer a { color: inherit; text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+  @keyframes fadeUp { from { opacity: 0; transform: translateY(16px); } to { opacity: 1; transform: translateY(0); } }
+</style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-home">&larr; Italy 2026</a>
+  <div class="site-nav-links">
+    <a href="accommodations.html">&#127968; Accommodations</a>
+    <a href="calendar.html">&#128197; Calendar</a>
+    <a href="flights.html">&#9992; Flights</a>
+    <a href="living.html">&#127863; Living Like an Italian</a>
+    <a href="excursions.html" class="active">&#128506; Day Excursions</a>
+    <a href="#" style="pointer-events:none;opacity:0.3;">&#128182; Trip Costs</a>
+  </div>
+</nav>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="wc-scene">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+  </div>
+  <div class="banner-vignette"></div>
+  <div class="banner-text">
+    <div class="banner-eyebrow">Italy 2026</div>
+    <div class="banner-title">Excursion Priority Matrix</div>
+    <div class="banner-rule"></div>
+  </div>
+</header>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <a href="excursions.html" class="back-link">&larr; Back to Day Excursions</a>
+
+  <!-- LEGEND -->
+  <div class="matrix-legend">
+    <div class="legend-eyebrow">Priority Key</div>
+    <div class="legend-grid">
+      <div class="legend-item"><div class="legend-chip" style="background:#375623;color:#fff">1</div><div class="legend-label">Top choice</div></div>
+      <div class="legend-item"><div class="legend-chip" style="background:#538135;color:#fff">2</div><div class="legend-label">2nd</div></div>
+      <div class="legend-item"><div class="legend-chip" style="background:#70AD47;color:#fff">3</div><div class="legend-label">3rd</div></div>
+      <div class="legend-item"><div class="legend-chip" style="background:#A9D18E;color:#000">4</div><div class="legend-label">4th</div></div>
+      <div class="legend-item"><div class="legend-chip" style="background:#E2EFDA;color:#000">5</div><div class="legend-label">5th</div></div>
+      <div class="legend-item"><div class="legend-chip" style="background:#F4F9EE;color:#000">6</div><div class="legend-label">6th</div></div>
+      <div class="legend-sep"></div>
+      <div class="legend-item"><div class="legend-chip" style="background:#e8e8e8;">&nbsp;</div><div class="legend-label">No preference</div></div>
+    </div>
+    <div class="legend-note">Numbers reflect each traveler&rsquo;s ranked preference (1&nbsp;= highest priority). Hosts Dave M &amp; Mike travel together May&nbsp;11&ndash;Jun&nbsp;21. Distances and drive times are estimates from the base villa.</div>
+  </div>
+
+  <!-- MATRIX TABLE -->
+  <div class="matrix-wrap">
+    <table class="matrix-table">
+      <thead>
+        <tr>
+          <th class="th-exc">Excursion</th>
+          <th class="th-rgn">Region</th>
+          <th class="th-dist">Distance</th>
+          <th class="th-time">Drive</th>
+          <th class="th-cost">Cost</th>
+          <th class="th-traveler">Dave M<span class="host-sub">host</span></th>
+          <th class="th-traveler">Mike<span class="host-sub">host</span></th>
+          <th class="th-traveler">Jane</th>
+          <th class="th-traveler">Chuck</th>
+          <th class="th-traveler">Mary</th>
+          <th class="th-traveler">Teresa</th>
+          <th class="th-traveler">Dave W</th>
+          <th class="th-n">#</th>
+          <th class="th-bw">Best Window</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr class="sec-hdr"><td colspan="14" style="background:#D4760A">Ostuni Region &nbsp;&middot;&nbsp; May 11&ndash;31</td></tr>
+        <tr style="background:#FFF9E6"><td class="exc-name">Matera</td><td class="rgn-tag rgn-ostuni">Ostuni</td><td class="travel">~100 km</td><td class="travel">~1h 20min</td><td class="cost-cell">$246.75/pp<br>($987 ÷ 4)</td><td class="pc" style="background:#375623;color:#ffffff">1</td><td class="pc" style="background:#375623;color:#ffffff">1</td><td class="pc" style="background:#375623;color:#ffffff">1</td><td class="pc" style="background:#375623;color:#ffffff">1</td><td class="pc np"></td><td class="pc np"></td><td class="pc np"></td><td class="n-int">4</td><td class="bw">May 22 – 31</td></tr>
+        <tr style="background:#FFF2CC"><td class="exc-name">Polignano a Mare</td><td class="rgn-tag rgn-ostuni">Ostuni</td><td class="travel">~40 km</td><td class="travel">~40 min</td><td class="cost-cell"></td><td class="pc" style="background:#538135;color:#ffffff">2</td><td class="pc" style="background:#538135;color:#ffffff">2</td><td class="pc np"></td><td class="pc np"></td><td class="pc np"></td><td class="pc np"></td><td class="pc np"></td><td class="n-int">2</td><td class="bw">May 11 – 31</td></tr>
+        <tr style="background:#FFF9E6"><td class="exc-name">Alberobello</td><td class="rgn-tag rgn-ostuni">Ostuni</td><td class="travel">~30 km</td><td class="travel">~35 min</td><td class="cost-cell"></td><td class="pc" style="background:#70AD47;color:#ffffff">3</td><td class="pc" style="background:#70AD47;color:#ffffff">3</td><td class="pc" style="background:#538135;color:#ffffff">2</td><td class="pc" style="background:#538135;color:#ffffff">2</td><td class="pc np"></td><td class="pc" style="background:#375623;color:#ffffff">1</td><td class="pc" style="background:#375623;color:#ffffff">1</td><td class="n-int">6</td><td class="bw">May 29 – 31</td></tr>
+        <tr class="sec-hdr"><td colspan="14" style="background:#2F5496">Arezzo Region &nbsp;&middot;&nbsp; June 1&ndash;21</td></tr>
+        <tr style="background:#EFF7FF"><td class="exc-name">Montepulciano</td><td class="rgn-tag rgn-arezzo">Arezzo</td><td class="travel">~65 km</td><td class="travel">~1h 5min</td><td class="cost-cell">DATE TBD</td><td class="pc" style="background:#375623;color:#ffffff">1</td><td class="pc" style="background:#375623;color:#ffffff">1</td><td class="pc" style="background:#538135;color:#ffffff">2</td><td class="pc" style="background:#538135;color:#ffffff">2</td><td class="pc np"></td><td class="pc" style="background:#A9D18E;color:#000000">4</td><td class="pc" style="background:#A9D18E;color:#000000">4</td><td class="n-int">6</td><td class="bw">Jun 1 – 5</td></tr>
+        <tr style="background:#DDEEFF"><td class="exc-name">Anghiari</td><td class="rgn-tag rgn-arezzo">Arezzo</td><td class="travel">~38 km</td><td class="travel">~45 min</td><td class="cost-cell"></td><td class="pc" style="background:#538135;color:#ffffff">2</td><td class="pc" style="background:#538135;color:#ffffff">2</td><td class="pc np"></td><td class="pc np"></td><td class="pc np"></td><td class="pc np"></td><td class="pc np"></td><td class="n-int">2</td><td class="bw">Jun 1 – 21</td></tr>
+        <tr style="background:#EFF7FF"><td class="exc-name">Castello di Verrazzano</td><td class="rgn-tag rgn-arezzo">Arezzo</td><td class="travel">~50 km</td><td class="travel">~55 min</td><td class="cost-cell">DATE TBD</td><td class="pc" style="background:#70AD47;color:#ffffff">3</td><td class="pc" style="background:#70AD47;color:#ffffff">3</td><td class="pc" style="background:#375623;color:#ffffff">1</td><td class="pc" style="background:#375623;color:#ffffff">1</td><td class="pc np"></td><td class="pc" style="background:#375623;color:#ffffff">1</td><td class="pc" style="background:#375623;color:#ffffff">1</td><td class="n-int">6</td><td class="bw">Jun 1 – 5</td></tr>
+        <tr style="background:#DDEEFF"><td class="exc-name">Siena</td><td class="rgn-tag rgn-arezzo">Arezzo</td><td class="travel">~70 km</td><td class="travel">~1h 10min</td><td class="cost-cell"></td><td class="pc np"></td><td class="pc np"></td><td class="pc" style="background:#70AD47;color:#ffffff">3</td><td class="pc" style="background:#70AD47;color:#ffffff">3</td><td class="pc np"></td><td class="pc np"></td><td class="pc np"></td><td class="n-int">2</td><td class="bw">Jun 1 – 9</td></tr>
+        <tr style="background:#EFF7FF"><td class="exc-name">Cortona</td><td class="rgn-tag rgn-arezzo">Arezzo</td><td class="travel">~52 km</td><td class="travel">~55 min</td><td class="cost-cell"></td><td class="pc np"></td><td class="pc np"></td><td class="pc" style="background:#A9D18E;color:#000000">4</td><td class="pc" style="background:#A9D18E;color:#000000">4</td><td class="pc np"></td><td class="pc" style="background:#538135;color:#ffffff">2</td><td class="pc" style="background:#538135;color:#ffffff">2</td><td class="n-int">4</td><td class="bw">Jun 1 – 5</td></tr>
+        <tr style="background:#DDEEFF"><td class="exc-name">Casentino Valley</td><td class="rgn-tag rgn-arezzo">Arezzo</td><td class="travel">~35 km</td><td class="travel">~40 min</td><td class="cost-cell"></td><td class="pc np"></td><td class="pc np"></td><td class="pc" style="background:#E2EFDA;color:#000000">5</td><td class="pc" style="background:#E2EFDA;color:#000000">5</td><td class="pc np"></td><td class="pc np"></td><td class="pc np"></td><td class="n-int">2</td><td class="bw">Jun 1 – 9</td></tr>
+        <tr class="sec-hdr"><td colspan="14" style="background:#7B2D8B">Florence Day Trip &nbsp;&middot;&nbsp; Best Jun 1&ndash;6</td></tr>
+        <tr style="background:#F5EEFF"><td class="exc-name">Accademia Gallery</td><td class="rgn-tag rgn-florence">Florence</td><td class="travel">~55 km</td><td class="travel">~1h</td><td class="cost-cell"></td><td class="pc np"></td><td class="pc np"></td><td class="pc" style="background:#F4F9EE;color:#000000">6</td><td class="pc" style="background:#F4F9EE;color:#000000">6</td><td class="pc np"></td><td class="pc" style="background:#E2EFDA;color:#000000">5</td><td class="pc" style="background:#E2EFDA;color:#000000">5</td><td class="n-int">4</td><td class="bw">Jun 1 – 5</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div><!-- /page-body -->
+
+<footer>
+  <a href="index.html">Italy 2026</a> &nbsp;&middot;&nbsp; Excursion Priority Matrix &nbsp;&middot;&nbsp; Puglia &amp; Tuscany
+</footer>
+
+</body>
+</html>
