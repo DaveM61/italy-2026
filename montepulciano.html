@@ -1,0 +1,1012 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italy 2026 — Montepulciano Day Trip</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cormorant+SC:wght@300;400;600&family=Playfair+Display:wght@400;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream:       #faf7f0;
+    --parchment:   #f2ece0;
+    --warm-rule:   #ddd0b8;
+    --ink:         #2a2318;
+    --muted:       #7a6e60;
+    --sage:        #6b8c6e;
+    --terracotta:  #c4714a;
+    --dusty-blue:  #7a9bab;
+    --gold:        #b8892a;
+    --rule:        #d4c9b5;
+    --warm-bg:     #faf7f2;
+    --paper:       #f4efe6;
+    --tuscany:     #4a7c5a;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 17px;
+    line-height: 1.65;
+  }
+
+  /* ─── SITE NAV ─── */
+  .site-nav {
+    background: #5c3420;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    border-bottom: 2px solid var(--gold);
+    flex-wrap: wrap;
+  }
+  .site-nav-home {
+    font-family: 'Cormorant SC', serif;
+    font-size: 13px; font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(250,247,242,0.9);
+    text-decoration: none;
+    padding: 14px 0;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+  .site-nav-home:hover { color: var(--gold); }
+  .site-nav-links { display: flex; flex-wrap: wrap; }
+  .site-nav-links a {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px; font-weight: 400;
+    letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(250,247,242,0.5);
+    text-decoration: none;
+    padding: 14px 18px;
+    position: relative;
+    transition: color 0.2s;
+  }
+  .site-nav-links a.active,
+  .site-nav-links a:hover { color: rgba(250,247,242,0.95); }
+  .site-nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 24px);
+    height: 2px;
+    background: var(--gold);
+  }
+
+  /* ─── BANNER ─── */
+  .banner {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #f5efe3;
+  }
+  .wc-scene { position: absolute; inset: 0; overflow: hidden; }
+  .wc-scene::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 20%, rgba(180,210,225,0.45) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 20% 10%, rgba(210,225,195,0.3) 0%, transparent 60%),
+      radial-gradient(ellipse 100% 50% at 50% 100%, rgba(210,185,155,0.4) 0%, transparent 60%),
+      linear-gradient(170deg, #f0ece2 0%, #ede4d3 40%, #e8ddc8 100%);
+  }
+  .blob { position: absolute; filter: blur(1px); opacity: 0.18; }
+  .blob-1 { width:220px; height:180px; top:-20px; left:-30px; background:#8ab38c; border-radius:50% 60% 40% 70%/60% 40% 70% 50%; }
+  .blob-2 { width:160px; height:200px; top:10px; left:60px; background:#c4b98a; border-radius:40% 60% 55% 45%/55% 45% 65% 35%; }
+  .blob-3 { width:200px; height:150px; top:30px; right:20px; background:#9bbfcc; border-radius:55% 45% 40% 60%/40% 60% 45% 55%; }
+  .blob-4 { width:180px; height:160px; bottom:-10px; right:60px; background:#c4a882; border-radius:45% 55% 60% 40%/55% 45% 55% 45%; }
+  .blob-5 { width:140px; height:120px; bottom:20px; left:30%; background:#b8c9a0; border-radius:50% 50% 45% 55%/50% 50% 55% 45%; }
+  .hills { position:absolute; bottom:0; left:0; right:0; height:70px; }
+  .hills svg { width:100%; height:100%; }
+  .cypress { position:absolute; bottom:42px; border-radius:50% 50% 45% 45%; background:linear-gradient(to bottom,#5a7a5c,#4a6a4c); opacity:0.55; }
+  .cy-1 { left:4%;  height:80px;  width:12px; }
+  .cy-2 { left:6%;  height:100px; width:10px; bottom:44px; }
+  .cy-3 { left:8%;  height:68px;  width:11px; }
+  .cy-4 { right:8%; height:85px;  width:12px; }
+  .cy-5 { right:10%;height:72px;  width:10px; bottom:46px; }
+  .banner-vignette {
+    position:absolute; inset:0;
+    background:radial-gradient(ellipse 90% 90% at 50% 50%, transparent 55%, rgba(242,236,224,0.6) 100%);
+    pointer-events:none;
+  }
+  .banner-text {
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:20px; gap:0;
+    opacity:0; animation:fadeIn 1.2s ease 0.3s forwards;
+  }
+  .banner-eyebrow {
+    font-family:'Cormorant SC', serif;
+    font-size:13px; font-weight:400;
+    letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--terracotta);
+    margin-bottom:8px;
+    text-shadow:0 1px 8px rgba(242,236,224,0.9);
+  }
+  .banner-title {
+    font-family:'Cormorant SC', serif;
+    font-weight:300;
+    font-size:clamp(30px, 5.5vw, 52px);
+    letter-spacing:0.1em;
+    color:var(--ink);
+    line-height:1.1;
+    text-shadow:0 1px 12px rgba(242,236,224,0.9), 0 0 30px rgba(242,236,224,0.7);
+  }
+  .banner-subtitle {
+    font-family:'Cormorant Garamond', serif;
+    font-size: clamp(13px, 2vw, 17px);
+    font-weight: 300;
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 6px;
+    letter-spacing: 0.06em;
+  }
+  .banner-rule {
+    width:60px; height:1px;
+    background:linear-gradient(to right, transparent, var(--gold), transparent);
+    margin:10px auto 0;
+  }
+
+  /* ─── PAGE BODY ─── */
+  .page-body {
+    max-width: 860px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.8s forwards;
+  }
+
+  /* ─── BACK LINK ─── */
+  .back-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    font-family: 'Cormorant SC', serif;
+    font-size: 13px;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: var(--muted);
+    text-decoration: none;
+    margin-bottom: 28px;
+    transition: color 0.2s;
+  }
+  .back-link:hover { color: var(--terracotta); }
+
+  /* ─── ITINERARY META ─── */
+  .itinerary-meta {
+    background: var(--parchment);
+    border: 1px solid var(--warm-rule);
+    border-left: 4px solid var(--tuscany);
+    border-radius: 8px;
+    padding: 22px 28px;
+    margin-bottom: 36px;
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+    gap: 16px 24px;
+  }
+  .meta-item-label {
+    font-family: 'Cormorant SC', serif;
+    font-size: 12px;
+    letter-spacing: 0.18em;
+    text-transform: uppercase;
+    color: var(--gold);
+    margin-bottom: 3px;
+  }
+  .meta-item-value {
+    font-size: 14px;
+    color: var(--ink);
+    line-height: 1.45;
+  }
+  .meta-item-value.tbd {
+    color: var(--terracotta);
+    font-style: italic;
+  }
+
+  /* ─── TRIP SUMMARY ─── */
+  .trip-summary {
+    font-size: 16px;
+    line-height: 1.8;
+    color: var(--ink);
+    background: rgba(255,255,255,0.55);
+    border: 1px solid var(--warm-rule);
+    border-radius: 6px;
+    padding: 20px 26px;
+    margin-bottom: 36px;
+  }
+
+  /* ─── SECTION HEADERS ─── */
+  .section-eyebrow {
+    font-family: 'Cormorant SC', serif;
+    font-size: 13px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold); margin-bottom: 6px;
+  }
+  .section-title {
+    font-family: 'Playfair Display', serif;
+    font-size: 20px; font-weight: 700;
+    color: var(--ink);
+    margin-bottom: 20px;
+    padding-bottom: 10px;
+    border-bottom: 1px solid var(--warm-rule);
+  }
+
+  /* ─── ROUTE TABLE ─── */
+  .route-table-wrap { margin-bottom: 12px; overflow-x: auto; }
+  .route-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .route-table th {
+    font-family: 'Cormorant SC', serif;
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: rgba(250,247,242,0.9);
+    background: var(--tuscany);
+    padding: 8px 14px;
+    text-align: left;
+  }
+  .route-table td {
+    padding: 8px 14px;
+    border-bottom: 1px solid var(--warm-rule);
+    color: var(--ink);
+  }
+  .route-table tr:nth-child(even) td { background: rgba(242,236,224,0.4); }
+  .route-table tr.total-row td {
+    font-weight: 600;
+    background: rgba(184,137,42,0.08);
+    border-top: 2px solid var(--gold);
+  }
+  .full-day-note {
+    font-size: 13px;
+    font-style: italic;
+    color: var(--muted);
+    margin-top: 8px;
+    margin-bottom: 32px;
+  }
+
+  /* ─── MAP WRAPPER ─── */
+  .map-wrap {
+    margin: 24px 0 8px;
+    border-radius: 8px;
+    overflow: hidden;
+    border: 1px solid var(--warm-rule);
+  }
+  .map-wrap iframe { display: block; }
+  .map-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+    margin: 10px 0 32px;
+    font-size: 13px;
+    color: var(--tuscany);
+    text-decoration: none;
+    font-weight: 600;
+  }
+  .map-link:hover { color: var(--terracotta); text-decoration: underline; }
+
+  /* ─── WHY THIS ORDER ─── */
+  .why-box {
+    background: rgba(74,124,90,0.06);
+    border: 1px solid rgba(74,124,90,0.2);
+    border-left: 4px solid var(--tuscany);
+    border-radius: 6px;
+    padding: 20px 24px;
+    margin-bottom: 48px;
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--ink);
+  }
+  .why-box-label {
+    font-family: 'Cormorant SC', serif;
+    font-size: 12px; letter-spacing: 0.18em; text-transform: uppercase;
+    color: var(--tuscany);
+    margin-bottom: 8px;
+  }
+
+  /* ─── STOP SECTION ─── */
+  .stop-section { margin-bottom: 52px; }
+  .stop-header {
+    display: flex;
+    align-items: baseline;
+    gap: 14px;
+    margin-bottom: 4px;
+    flex-wrap: wrap;
+  }
+  .stop-number {
+    font-family: 'Cormorant SC', serif;
+    font-size: 12px; letter-spacing: 0.2em; text-transform: uppercase;
+    color: var(--gold);
+    flex-shrink: 0;
+  }
+  .stop-name {
+    font-family: 'Playfair Display', serif;
+    font-size: 22px; font-weight: 700;
+    color: var(--ink);
+  }
+  .stop-time {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 14px; font-weight: 400; font-style: italic;
+    color: var(--muted);
+    flex-shrink: 0;
+  }
+  .stop-tagline {
+    font-size: 14px;
+    font-style: italic;
+    color: var(--muted);
+    margin-bottom: 16px;
+    padding-bottom: 14px;
+    border-bottom: 1px solid var(--warm-rule);
+  }
+
+  /* ─── PARKING CALLOUT ─── */
+  .parking-box {
+    background: rgba(250,247,240,0.8);
+    border: 1px solid var(--warm-rule);
+    border-radius: 6px;
+    padding: 14px 18px;
+    margin: 16px 0;
+    font-size: 13px;
+    line-height: 1.6;
+    color: var(--ink);
+  }
+  .parking-box-label {
+    font-family: 'Cormorant SC', serif;
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--muted);
+    margin-bottom: 5px;
+  }
+  .parking-box strong { color: var(--ink); }
+  .parking-box a { color: var(--tuscany); text-decoration: none; font-weight: 600; font-size: 12px; }
+  .parking-box a:hover { text-decoration: underline; }
+
+  /* ─── SUB HEADINGS ─── */
+  .sub-head {
+    font-family: 'Playfair Display', serif;
+    font-size: 16px; font-weight: 700;
+    color: var(--ink);
+    margin: 22px 0 10px;
+  }
+  .sub-head-minor {
+    font-family: 'Cormorant SC', serif;
+    font-size: 13px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: var(--terracotta);
+    margin: 16px 0 6px;
+  }
+
+  /* ─── BODY TEXT ─── */
+  .body-text {
+    font-size: 15px;
+    line-height: 1.75;
+    color: var(--ink);
+    margin-bottom: 14px;
+  }
+  .body-text strong { color: var(--ink); }
+  .body-text em { color: var(--muted); }
+
+  /* ─── TIME ALLOCATION TABLE ─── */
+  .time-table-wrap { margin: 16px 0 20px; overflow-x: auto; }
+  .time-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+  }
+  .time-table th {
+    font-family: 'Cormorant SC', serif;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(250,247,242,0.9);
+    background: #5c3420;
+    padding: 7px 14px;
+    text-align: left;
+  }
+  .time-table td {
+    padding: 7px 14px;
+    border-bottom: 1px solid var(--warm-rule);
+    color: var(--ink);
+  }
+  .time-table tr:nth-child(even) td { background: rgba(242,236,224,0.35); }
+
+  /* ─── RESTAURANT TABLE ─── */
+  .restaurant-table-wrap { margin: 12px 0 16px; overflow-x: auto; }
+  .restaurant-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .restaurant-table th {
+    font-family: 'Cormorant SC', serif;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(250,247,242,0.9);
+    background: var(--terracotta);
+    padding: 8px 14px;
+    text-align: left;
+  }
+  .restaurant-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--warm-rule);
+    color: var(--ink);
+    vertical-align: top;
+  }
+  .restaurant-table tr:last-child td { border-bottom: none; }
+  .restaurant-table tr:nth-child(even) td { background: rgba(242,236,224,0.35); }
+  .restaurant-name { font-weight: 700; }
+
+  /* ─── PRO TIP BOX ─── */
+  .pro-tip {
+    background: var(--parchment);
+    border: 1px solid var(--warm-rule);
+    border-left: 4px solid var(--tuscany);
+    border-radius: 6px;
+    padding: 14px 20px;
+    margin: 16px 0;
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink);
+  }
+  .pro-tip-label {
+    font-family: 'Cormorant SC', serif;
+    font-size: 12px; letter-spacing: 0.16em; text-transform: uppercase;
+    color: var(--tuscany);
+    margin-bottom: 5px;
+  }
+
+  /* ─── TIPS LIST ─── */
+  .tips-list {
+    list-style: none;
+    padding: 0;
+    margin: 10px 0 20px;
+  }
+  .tips-list li {
+    font-size: 14px;
+    line-height: 1.65;
+    color: var(--ink);
+    padding: 6px 0 6px 22px;
+    border-bottom: 1px solid rgba(221,208,184,0.4);
+    position: relative;
+  }
+  .tips-list li:last-child { border-bottom: none; }
+  .tips-list li::before {
+    content: '\2192';
+    position: absolute;
+    left: 0;
+    color: var(--gold);
+    font-size: 13px;
+  }
+
+  /* ─── RETURN SECTION ─── */
+  .return-box {
+    background: var(--ink);
+    color: var(--warm-bg);
+    border-radius: 8px;
+    padding: 24px 28px;
+    margin-bottom: 48px;
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    flex-wrap: wrap;
+  }
+  .return-box-icon { font-size: 28px; flex-shrink: 0; }
+  .return-box-text { flex: 1; min-width: 200px; }
+  .return-box-text p {
+    font-size: 15px;
+    color: rgba(250,247,242,0.85);
+    line-height: 1.6;
+    margin-bottom: 8px;
+  }
+  .return-box-text p:last-child { margin-bottom: 0; }
+  .return-box-text a {
+    color: var(--gold);
+    font-size: 13px;
+    font-weight: 600;
+    text-decoration: none;
+  }
+  .return-box-text a:hover { text-decoration: underline; }
+
+  /* ─── PRACTICAL TABLE ─── */
+  .practical-table-wrap { margin: 10px 0 48px; overflow-x: auto; }
+  .practical-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 14px;
+  }
+  .practical-table th {
+    font-family: 'Cormorant SC', serif;
+    font-size: 12px; letter-spacing: 0.14em; text-transform: uppercase;
+    color: rgba(250,247,242,0.9);
+    background: #5c3420;
+    padding: 8px 14px;
+    text-align: left;
+  }
+  .practical-table td {
+    padding: 10px 14px;
+    border-bottom: 1px solid var(--warm-rule);
+    color: var(--ink);
+    vertical-align: top;
+  }
+  .practical-table td:first-child {
+    font-weight: 600;
+    white-space: nowrap;
+    color: var(--ink);
+    width: 140px;
+  }
+  .practical-table tr:nth-child(even) td { background: rgba(242,236,224,0.35); }
+
+  /* ─── QUICK LINKS ─── */
+  .quick-links {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));
+    gap: 10px;
+    margin-bottom: 48px;
+  }
+  .quick-link-item {
+    background: white;
+    border: 1px solid var(--warm-rule);
+    border-radius: 6px;
+    padding: 12px 16px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+  .quick-link-item:hover {
+    border-color: var(--gold);
+    transform: translateY(-2px);
+  }
+  .quick-link-icon { font-size: 16px; flex-shrink: 0; }
+  .quick-link-text { font-size: 13px; color: var(--ink); line-height: 1.4; }
+  .quick-link-text strong { display: block; font-size: 13px; color: var(--muted); font-weight: 400; font-family: 'Cormorant SC', serif; letter-spacing: 0.1em; text-transform: uppercase; }
+
+  /* ─── DIVIDER ─── */
+  .stop-divider {
+    border: none;
+    border-top: 1px solid var(--warm-rule);
+    margin: 48px 0;
+  }
+
+  /* ─── FOOTER NOTE ─── */
+  .itinerary-footer-note {
+    font-size: 12px;
+    color: var(--muted);
+    font-style: italic;
+    text-align: center;
+    padding-top: 24px;
+    border-top: 1px solid var(--warm-rule);
+    line-height: 1.8;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #5c3420;
+    border-top: 1px solid rgba(255,255,255,0.08);
+    padding: 22px 24px; text-align: center;
+    font-family: 'Cormorant SC', serif;
+    font-size:17px; letter-spacing: 0.14em;
+    color: rgba(250,247,242,0.35);
+  }
+  footer a { color: inherit; text-decoration: none; }
+  footer a:hover { color: var(--gold); }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(16px);} to{opacity:1;transform:translateY(0);} }
+
+  @media (max-width: 600px) {
+    .site-nav { padding: 0 16px; }
+    .site-nav-links a { padding: 12px 10px; font-size: 10px; }
+    .banner { height: 190px; }
+    .itinerary-meta { grid-template-columns: 1fr 1fr; }
+    .stop-header { gap: 8px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- SITE NAV -->
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-home">&larr; Italy 2026</a>
+  <div class="site-nav-links">
+    <a href="accommodations.html">&#127969; Accommodations</a>
+    <a href="calendar.html">&#128197; Calendar</a>
+    <a href="flights.html">&#9992; Flights</a>
+    <a href="living.html">&#127863; Living Like an Italian</a>
+    <a href="excursions.html" class="active">&#128506; Day Excursions</a>
+  </div>
+</nav>
+
+<!-- BANNER -->
+<header class="banner">
+  <div class="wc-scene">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="blob blob-5"></div>
+    <div class="cypress cy-1"></div>
+    <div class="cypress cy-2"></div>
+    <div class="cypress cy-3"></div>
+    <div class="cypress cy-4"></div>
+    <div class="cypress cy-5"></div>
+    <div class="hills">
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,70 L0,42 Q80,15 160,32 Q240,48 320,28 Q400,8 480,24 Q560,40 640,22 Q720,4 800,26 Q880,46 960,32 Q1040,16 1120,34 Q1200,52 1280,38 Q1360,22 1440,40 L1440,70 Z" fill="rgba(139,160,120,0.22)"/>
+        <path d="M0,70 L0,54 Q100,34 200,48 Q300,60 400,42 Q500,24 600,44 Q700,62 800,50 Q900,36 1000,52 Q1100,66 1200,54 Q1320,40 1440,56 L1440,70 Z" fill="rgba(180,165,130,0.28)"/>
+      </svg>
+    </div>
+  </div>
+  <div class="banner-vignette"></div>
+  <div class="banner-text">
+    <div class="banner-eyebrow">Day Excursion &middot; Tuscany</div>
+    <div class="banner-title">Montepulciano</div>
+    <div class="banner-subtitle">Underground Cellars &middot; Vino Nobile &middot; Gattavecchi</div>
+    <div class="banner-rule"></div>
+  </div>
+</header>
+
+<!-- PAGE BODY -->
+<div class="page-body">
+
+  <a href="excursions.html" class="back-link">&larr; Back to Day Excursions</a>
+
+  <!-- META INFO -->
+  <div class="itinerary-meta">
+    <div>
+      <div class="meta-item-label">Date</div>
+      <div class="meta-item-value tbd">TBD &mdash; during Arezzo phase (June 1&ndash;22)</div>
+    </div>
+    <div>
+      <div class="meta-item-label">Travelers</div>
+      <div class="meta-item-value tbd">TBD &mdash; to be confirmed</div>
+    </div>
+    <div>
+      <div class="meta-item-label">Departure</div>
+      <div class="meta-item-value">9:00 AM</div>
+    </div>
+    <div>
+      <div class="meta-item-label">Base Villa</div>
+      <div class="meta-item-value">Pergine Valdarno, Arezzo</div>
+    </div>
+    <div>
+      <div class="meta-item-label">Theme</div>
+      <div class="meta-item-value">Wine &middot; History &middot; Underground Cellars</div>
+    </div>
+    <div>
+      <div class="meta-item-label">Full Day</div>
+      <div class="meta-item-value">9:00 AM &ndash; 4:30 PM &middot; ~7.5 hours</div>
+    </div>
+  </div>
+
+  <!-- TRIP SUMMARY -->
+  <div class="trip-summary">
+    A full day in one of Tuscany's most stunning hilltop towns &mdash; home to Vino Nobile di Montepulciano, one of Italy's great DOCG wines. Walk the Renaissance streets from Porta al Prato up to Piazza Grande, descend into medieval underground cellars carved from the tufa beneath the historic center, then settle into a long lunch at Gattavecchi &mdash; a 13th-century monastery turned winery with a terrace overlooking the Tempio di San Biagio. A wine-and-history day, unhurried.
+  </div>
+
+  <!-- ROUTE AT A GLANCE -->
+  <div class="section-eyebrow">Getting There</div>
+  <div class="section-title">Route at a Glance</div>
+  <div class="route-table-wrap">
+    <table class="route-table">
+      <thead>
+        <tr>
+          <th>Leg</th>
+          <th>From &rarr; To</th>
+          <th>Distance</th>
+          <th>Drive Time</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>1</td><td>Villa Pergine Valdarno &rarr; Montepulciano</td><td>~65 km</td><td>~55 min</td></tr>
+        <tr><td>2</td><td>Montepulciano &rarr; Villa Pergine Valdarno</td><td>~65 km</td><td>~55 min</td></tr>
+        <tr class="total-row"><td colspan="2"><strong>Total (round trip)</strong></td><td><strong>~130 km</strong></td><td><strong>~1h 50 min</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="full-day-note">Full day: 9:00 AM &ndash; 4:30 PM &middot; ~7.5 hours including drive, all stops, and lunch</p>
+
+  <!-- MAP -->
+  <div class="section-eyebrow">Overview Map</div>
+  <div class="section-title">Pergine Valdarno &rarr; Montepulciano</div>
+  <div class="map-wrap">
+    <iframe width="100%" height="380" frameborder="0" scrolling="no"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=11.55%2C43.10%2C11.85%2C43.45&layer=mapnik"
+      style="display:block;">
+    </iframe>
+  </div>
+  <a href="https://www.google.com/maps/dir/Pergine+Valdarno,+AR,+Italy/Montepulciano,+SI,+Italy" target="_blank" class="map-link">
+    &#128205; Open Route in Google Maps &rarr;
+  </a>
+
+  <!-- WHY THIS ORDER -->
+  <div class="why-box">
+    <div class="why-box-label">Why This Flow?</div>
+    Montepulciano is a single hilltop town, so the day unfolds linearly rather than as a multi-stop loop. You enter at the bottom (Porta al Prato), walk uphill through the Renaissance <em>corso</em>, and reach Piazza Grande at the summit. The underground cellars are accessed from the Piazza Grande area, making them a natural midday anchor. Gattavecchi sits near the southern edge of the walls &mdash; close enough to walk to after the cellar tour, and perfectly positioned for a late lunch followed by a downhill stroll to the Tempio di San Biagio before heading back to the car. Everything flows downhill after the climb.
+  </div>
+
+  <hr class="stop-divider">
+
+  <!-- ══════════════════════════════════════════
+       STOP 1 — HISTORIC CENTER WALK
+  ══════════════════════════════════════════ -->
+  <div class="stop-section">
+    <div class="stop-header">
+      <span class="stop-number">Stop 1</span>
+      <span class="stop-name">The Historic Center</span>
+      <span class="stop-time">~10:00 AM &ndash; 11:30 AM &middot; ~1h 30min</span>
+    </div>
+    <p class="stop-tagline">Porta al Prato to Piazza Grande &mdash; a Renaissance walk through the heart of Montepulciano</p>
+
+    <div class="parking-box">
+      <div class="parking-box-label">&#127359; Parking</div>
+      <strong>Parcheggio P1 &mdash; Porta al Prato</strong> &mdash; Large lot at the lower, western entrance to town. &euro;1.50&ndash;2.50/hr, paid at meters. This is the best starting point: you park at the bottom, walk uphill through town, and everything unfolds naturally.
+      &nbsp;<a href="https://www.google.com/maps/search/parcheggio+P1+porta+al+prato+montepulciano" target="_blank">Google Maps &rarr;</a>
+    </div>
+
+    <div class="sub-head">The Walk Up</div>
+
+    <div class="sub-head-minor">Il Corso (Via di Gracciano nel Corso)</div>
+    <p class="body-text">From Porta al Prato, the main street climbs gently through the town &mdash; a kilometer of Renaissance palazzi, artisan workshops, wine shops, and churches. You'll pass the <strong>Colonna del Marzocco</strong> (a Florentine lion on a column &mdash; Montepulciano was a Medici ally), the <strong>Torre di Pulcinella</strong> (a clock tower with a Commedia dell'arte figure that strikes the hours), and the <strong>Palazzo Bucelli</strong>, whose base is studded with Etruscan urns and cinerary pots embedded directly into the stonework. Don't rush this &mdash; the walk is the attraction.</p>
+
+    <div class="sub-head-minor">Piazza Grande</div>
+    <p class="body-text">The summit. Montepulciano's main square is one of the most harmonious Renaissance piazzas in Tuscany &mdash; the <strong>Palazzo Comunale</strong> (modeled after Florence's Palazzo Vecchio, with a tower you can climb for panoramic views of the Val di Chiana, Val d'Orcia, and on a clear day, Siena), the <strong>Cathedral</strong> (housing Taddeo di Bartolo's monumental Assumption altarpiece), and the <strong>Pozzo dei Grifi e dei Leoni</strong> (the well of the griffins and lions, designed by Antonio da Sangallo). Have an espresso at one of the piazza cafes and take it in.</p>
+
+    <div class="pro-tip">
+      <div class="pro-tip-label">Tower Climb</div>
+      The <strong>Palazzo Comunale tower</strong> is a short climb and the 360&deg; view from the top is extraordinary. If the weather is clear, it's worth the &euro;5 and 10 minutes. Open mornings and afternoons.
+    </div>
+
+    <div class="sub-head">Time Allocation</div>
+    <div class="time-table-wrap">
+      <table class="time-table">
+        <thead><tr><th>Activity</th><th>Time</th></tr></thead>
+        <tbody>
+          <tr><td>Walk up Il Corso &mdash; browse, photos, soak it in</td><td>40 min</td></tr>
+          <tr><td>Piazza Grande &mdash; Cathedral, well, piazza</td><td>25 min</td></tr>
+          <tr><td>Palazzo Comunale tower (optional)</td><td>15 min</td></tr>
+          <tr><td>Espresso at a piazza cafe</td><td>10 min</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub-head">Tips</div>
+    <ul class="tips-list">
+      <li><strong>Comfortable shoes are essential.</strong> The climb from Porta al Prato to Piazza Grande is gradual but entirely on cobblestone &mdash; about 1 km uphill.</li>
+      <li>The wine shops along Il Corso all offer tastings of Vino Nobile &mdash; resist the temptation on the way up. You'll get far better wines during the cellar tour and at Gattavecchi.</li>
+      <li>Montepulciano was a filming location for <em>Twilight: New Moon</em> (the Piazza Grande chase scene). If anyone in the group cares, now you know.</li>
+    </ul>
+  </div>
+
+  <hr class="stop-divider">
+
+  <!-- ══════════════════════════════════════════
+       STOP 2 — UNDERGROUND CELLARS
+  ══════════════════════════════════════════ -->
+  <div class="stop-section">
+    <div class="stop-header">
+      <span class="stop-number">Stop 2</span>
+      <span class="stop-name">Underground Wine Cellars</span>
+      <span class="stop-time">~11:30 AM &ndash; 12:45 PM &middot; ~1h 15min</span>
+    </div>
+    <p class="stop-tagline">Beneath the Renaissance &mdash; medieval tunnels, Etruscan tombs, and the birthplace of Vino Nobile</p>
+
+    <p class="body-text">Montepulciano sits on a ridge of tufa &mdash; soft volcanic rock &mdash; and for centuries, the noble families of the town carved cellars deep into the stone beneath their palazzi. The result is an underground city: a labyrinth of Gothic-Renaissance tunnels, brick vaults, hidden crypts, and ancient wells running beneath the streets above. Inside the cellars, enormous oak barrels hold Vino Nobile di Montepulciano DOCG and Vin Santo as they age in cool, constant conditions.</p>
+
+    <p class="body-text">Guided tours typically start from the Piazza Grande area and take you through two underground cellars connected by tunnels carved into the tufa. You'll walk beneath the noble palazzi &mdash; Tarugi, Avignonesi, Del Pecora, Batignani &mdash; passing through stone passages, medieval workshops, and authentic <strong>Etruscan tombs</strong> dating back over 2,000 years. The tour ends with a tasting of Vino Nobile, Rosso di Montepulciano, and often Vin Santo with cantucci.</p>
+
+    <div class="pro-tip">
+      <div class="pro-tip-label">Booking</div>
+      The <strong>Strada del Vino Nobile di Montepulciano</strong> organizes the official guided cellar tour. Tours run on set schedules (typically 11:00 AM and other times). Book in advance at <a href="https://www.stradavinonobile.it" target="_blank" style="color:var(--tuscany); font-weight:600;">stradavinonobile.it</a> or through the tourist office in Piazza Grande. Alternatively, <strong>Cantine De' Ricci</strong> and <strong>Cantina Ercolani</strong> offer their own underground tours with tastings &mdash; both are excellent and accessible directly from the historic center.
+    </div>
+
+    <div class="sub-head">What You'll See</div>
+    <ul class="tips-list">
+      <li><strong>Medieval tufa tunnels</strong> &mdash; carved passages beneath the Renaissance palazzi, with spectacular brick vault ceilings.</li>
+      <li><strong>Giant oak aging barrels</strong> &mdash; Vino Nobile and Vin Santo resting in centuries-old cellars at constant cool temperature.</li>
+      <li><strong>Etruscan tombs</strong> &mdash; authentic 2,000+ year-old burial chambers discovered during cellar excavations.</li>
+      <li><strong>Medieval wells, workshops, and escape passages</strong> &mdash; used by Ghibellines during factional conflicts.</li>
+      <li><strong>Wine tasting</strong> &mdash; Vino Nobile DOCG, Rosso di Montepulciano DOC, and often Vin Santo with cantucci at the end.</li>
+    </ul>
+
+    <div class="sub-head">Time Allocation</div>
+    <div class="time-table-wrap">
+      <table class="time-table">
+        <thead><tr><th>Activity</th><th>Time</th></tr></thead>
+        <tbody>
+          <tr><td>Guided underground tour</td><td>45 min</td></tr>
+          <tr><td>Wine tasting</td><td>20 min</td></tr>
+          <tr><td>Walk to Gattavecchi</td><td>10 min</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub-head">Tips</div>
+    <ul class="tips-list">
+      <li><strong>Bring a light layer.</strong> The cellars are cool year-round (~14&deg;C / 57&deg;F), even in June.</li>
+      <li>The tour involves uneven stone floors and low ceilings in places &mdash; wear those good walking shoes.</li>
+      <li>If you book the official Strada del Vino Nobile tour, it typically visits two cellars. Budget about an hour.</li>
+    </ul>
+  </div>
+
+  <hr class="stop-divider">
+
+  <!-- ══════════════════════════════════════════
+       STOP 3 — LUNCH AT GATTAVECCHI
+  ══════════════════════════════════════════ -->
+  <div class="stop-section">
+    <div class="stop-header">
+      <span class="stop-number">Stop 3</span>
+      <span class="stop-name">Lunch at Gattavecchi</span>
+      <span class="stop-time">~1:00 PM &ndash; 2:45 PM &middot; ~1h 45min</span>
+    </div>
+    <p class="stop-tagline">13th-century monastery &middot; La Cucina di Lilian &middot; terrace over the Tempio di San Biagio</p>
+
+    <p class="body-text">Dave and Mike have been here before &mdash; and loved it. We got to know the Gattavecchi family through our good friend Alfio Morricone, and we're looking forward to bringing everyone back with us this time.</p>
+
+    <p class="body-text">Gattavecchi is not just a restaurant &mdash; it's a family winery set inside the former <strong>Monastery of Santa Maria dei Servi</strong>, dating to the 1200s. The dining room occupies the old refectory, and the wine cellars below contain a <strong>2,000-year-old Etruscan tomb</strong> discovered during renovations. The food is <em>La Cucina di Lilian</em> &mdash; traditional Tuscan dishes made by Lilian Gattavecchi, paired with the family's own Vino Nobile.</p>
+
+    <p class="body-text">The terrace on the upper floor is the crown jewel: an outdoor dining space with panoramic views directly overlooking the <strong>Tempio di San Biagio</strong> &mdash; Antonio da Sangallo the Elder's Renaissance masterpiece, sitting in the green valley below the town walls. This is one of the great lunch views in Tuscany.</p>
+
+    <div class="restaurant-table-wrap">
+      <table class="restaurant-table">
+        <thead><tr><th>Detail</th><th>Info</th></tr></thead>
+        <tbody>
+          <tr>
+            <td><span class="restaurant-name">Gattavecchi</span></td>
+            <td>Via di Collazzi 74, Loc. Santa Maria, 53045 Montepulciano</td>
+          </tr>
+          <tr>
+            <td>Phone</td>
+            <td>+39 0578 757110</td>
+          </tr>
+          <tr>
+            <td>Lunch Hours</td>
+            <td>12:30 PM &ndash; 3:00 PM</td>
+          </tr>
+          <tr>
+            <td>Style</td>
+            <td>Traditional Tuscan &mdash; homemade pasta, grilled meats, seasonal vegetables. Rabbit, bistecca tagliata, pici all'aglione are standouts.</td>
+          </tr>
+          <tr>
+            <td>Price Range</td>
+            <td>&euro;20&ndash;30 per person (food); wine by the bottle from &euro;12&ndash;25</td>
+          </tr>
+          <tr>
+            <td>Website</td>
+            <td><a href="https://www.gattavecchi.it" target="_blank" style="color:var(--tuscany); font-weight:600;">gattavecchi.it</a></td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="pro-tip">
+      <div class="pro-tip-label">Reservation</div>
+      <strong>Book ahead.</strong> Call +39 0578 757110 or email through their website. Request the <strong>terrace</strong> specifically &mdash; the indoor refectory is beautiful, but the outdoor view of San Biagio is the reason to come here. Mention group size.
+    </div>
+
+    <div class="sub-head">What to Order</div>
+    <p class="body-text"><strong>Pici all'aglione</strong> &mdash; fat hand-rolled pasta with a garlicky tomato sauce, the signature dish of Montepulciano. <strong>Bistecca tagliata</strong> &mdash; grilled sliced steak with arugula and parmesan. The family's own <strong>Vino Nobile di Montepulciano</strong> by the bottle &mdash; you're at the source.</p>
+
+    <div class="sub-head">Time Allocation</div>
+    <div class="time-table-wrap">
+      <table class="time-table">
+        <thead><tr><th>Activity</th><th>Time</th></tr></thead>
+        <tbody>
+          <tr><td>Settle in, order wine, antipasti</td><td>20 min</td></tr>
+          <tr><td>Lunch (primi, secondi, contorni)</td><td>60 min</td></tr>
+          <tr><td>Espresso, dolci, linger</td><td>25 min</td></tr>
+        </tbody>
+      </table>
+    </div>
+
+    <div class="sub-head">Tips</div>
+    <ul class="tips-list">
+      <li>Ask about a <strong>cellar tour</strong> before or after lunch &mdash; Gattavecchi offers guided visits of their underground cellars, including the Etruscan tomb. It's separate from the town cellar tour and worth doing if time allows.</li>
+      <li>If anyone wants to buy bottles to take back to the villa, the family shop has the full range at winery prices.</li>
+      <li>The terrace faces west, so afternoon light is gorgeous. Bring sunglasses.</li>
+    </ul>
+  </div>
+
+  <hr class="stop-divider">
+
+  <!-- ══════════════════════════════════════════
+       STOP 4 — SAN BIAGIO (OPTIONAL)
+  ══════════════════════════════════════════ -->
+  <div class="stop-section">
+    <div class="stop-header">
+      <span class="stop-number">Stop 4 &mdash; Optional</span>
+      <span class="stop-name">Tempio di San Biagio</span>
+      <span class="stop-time">~2:45 PM &ndash; 3:15 PM &middot; ~30min</span>
+    </div>
+    <p class="stop-tagline">Antonio da Sangallo the Elder's Renaissance masterpiece &mdash; the church Michelangelo studied before designing St. Peter's</p>
+
+    <p class="body-text">You'll have been staring at it from the Gattavecchi terrace all through lunch &mdash; now walk down to see it up close. The <strong>Tempio di San Biagio</strong> sits alone in a green meadow just below the town walls, and it is arguably the finest Renaissance church in Tuscany outside of Florence. Built from local travertine between 1518 and 1545, its perfect Greek-cross plan and honey-colored stone are stunning. Michelangelo reportedly studied Sangallo's design when drafting the first plans for St. Peter's Basilica in Rome.</p>
+
+    <p class="body-text">The walk down from Gattavecchi takes about 10 minutes on a gentle road. The church is free to enter. You can drive back up to the P1 lot afterward (it's about a 3-minute drive), or walk back through town if the group has energy.</p>
+
+    <div class="sub-head">Tips</div>
+    <ul class="tips-list">
+      <li>This is the best place for a group photo &mdash; the church against the Montepulciano skyline is iconic.</li>
+      <li>If energy is low after lunch, skip the walk and simply enjoy it from the Gattavecchi terrace. You've already seen it beautifully.</li>
+    </ul>
+  </div>
+
+  <hr class="stop-divider">
+
+  <!-- RETURN -->
+  <div class="return-box">
+    <div class="return-box-icon">&#127969;</div>
+    <div class="return-box-text">
+      <p><strong style="color:white;">Return to Pergine Valdarno &mdash; ~3:30 PM &middot; ~55 min</strong></p>
+      <p>Head north back toward the villa. The drive retraces the morning route through the rolling Tuscan countryside. Back at the villa by ~4:30 PM &mdash; plenty of time for a swim, a nap, or opening one of the bottles you bought.</p>
+      <a href="https://www.google.com/maps/dir/Montepulciano,+SI,+Italy/Pergine+Valdarno,+AR,+Italy" target="_blank">Directions: Montepulciano &rarr; Pergine Valdarno &rarr;</a>
+    </div>
+  </div>
+
+  <!-- PRACTICAL TIPS -->
+  <div class="section-eyebrow">Before You Go</div>
+  <div class="section-title">Practical Notes</div>
+  <div class="practical-table-wrap">
+    <table class="practical-table">
+      <thead><tr><th>Topic</th><th>Notes</th></tr></thead>
+      <tbody>
+        <tr><td>Cash</td><td>Bring some. Parking meters and some small shops prefer cash. ATMs available near Piazza Grande.</td></tr>
+        <tr><td>Reservations</td><td>Book the cellar tour in advance. Book Gattavecchi lunch and request the terrace. Both can fill up in June.</td></tr>
+        <tr><td>Shoes</td><td>Cobblestones the entire way, plus uneven stone floors in the underground cellars. Proper walking shoes &mdash; not sandals.</td></tr>
+        <tr><td>Layer</td><td>Bring a light jacket or sweater for the underground cellars (~14&deg;C / 57&deg;F even in summer).</td></tr>
+        <tr><td>Driving</td><td>One car is fine. The drive is a scenic hour through the Valdichiana. Parking at P1 is straightforward.</td></tr>
+        <tr><td>Weather</td><td>June in southern Tuscany is warm (~25&ndash;30&deg;C). Sun protection for the walk up and the San Biagio visit.</td></tr>
+        <tr><td>Wine Buying</td><td>Vino Nobile is significantly cheaper at source. Gattavecchi and the cellar tour shops both sell at winery prices. Stock up for the villa.</td></tr>
+        <tr><td>Time Buffer</td><td>~30 min of slack is built in. If the cellar tour runs long, trim San Biagio to a terrace viewing &mdash; don't rush Gattavecchi.</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- QUICK LINKS -->
+  <div class="section-eyebrow">Quick Access</div>
+  <div class="section-title">Links &amp; Navigation</div>
+  <div class="quick-links">
+    <a href="https://www.google.com/maps/dir/Pergine+Valdarno,+AR,+Italy/Montepulciano,+SI,+Italy" target="_blank" class="quick-link-item">
+      <span class="quick-link-icon">&#128506;&#65039;</span>
+      <span class="quick-link-text"><strong>Full Route</strong>Google Maps &mdash; villa to Montepulciano</span>
+    </a>
+    <a href="https://www.google.com/maps/search/parcheggio+P1+porta+al+prato+montepulciano" target="_blank" class="quick-link-item">
+      <span class="quick-link-icon">&#127359;&#65039;</span>
+      <span class="quick-link-text"><strong>Parking P1</strong>Porta al Prato</span>
+    </a>
+    <a href="https://www.stradavinonobile.it" target="_blank" class="quick-link-item">
+      <span class="quick-link-icon">&#127863;</span>
+      <span class="quick-link-text"><strong>Cellar Tour Booking</strong>Strada del Vino Nobile</span>
+    </a>
+    <a href="https://www.google.com/maps/search/Gattavecchi+Montepulciano" target="_blank" class="quick-link-item">
+      <span class="quick-link-icon">&#127869;&#65039;</span>
+      <span class="quick-link-text"><strong>Gattavecchi</strong>Via di Collazzi 74</span>
+    </a>
+    <a href="https://www.gattavecchi.it" target="_blank" class="quick-link-item">
+      <span class="quick-link-icon">&#127863;</span>
+      <span class="quick-link-text"><strong>Gattavecchi Website</strong>Menu, bookings, cellar tours</span>
+    </a>
+    <a href="https://www.google.com/maps/search/tempio+san+biagio+montepulciano" target="_blank" class="quick-link-item">
+      <span class="quick-link-icon">&#9962;&#65039;</span>
+      <span class="quick-link-text"><strong>Tempio di San Biagio</strong>Below south walls</span>
+    </a>
+  </div>
+
+  <p class="itinerary-footer-note">
+    Itinerary prepared for Dave &amp; Mike's Italy 2026 group trip &middot; Base: Pergine Valdarno, Arezzo<br>
+    Distances and times are driving estimates &mdash; verify with Google Maps before departure.
+  </p>
+
+</div><!-- /page-body -->
+
+<footer>
+  <a href="index.html">Italy 2026</a> &nbsp;&middot;&nbsp;
+  <a href="excursions.html">Day Excursions</a> &nbsp;&middot;&nbsp;
+  Montepulciano &middot; Tuscany
+</footer>
+
+</body>
+</html>
