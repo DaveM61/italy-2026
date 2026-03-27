@@ -348,6 +348,41 @@
 
   .bed-item.vacant .bed-name { color: #ccc5b8; }
 
+  .excur-item {
+    display: flex;
+    align-items: baseline;
+    gap: 5px;
+    line-height: 1.25;
+    margin-top: 2px;
+    padding-top: 3px;
+    border-top: 1px dotted var(--warm-rule);
+  }
+  .excur-label {
+    font-family: 'Source Serif 4', serif;
+    font-size: 8px;
+    font-weight: 700;
+    letter-spacing: 0.08em;
+    text-transform: uppercase;
+    color: var(--terracotta);
+    flex-shrink: 0;
+    width: 24px;
+  }
+  .excur-name {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px;
+    font-weight: 600;
+    color: var(--terracotta);
+    line-height: 1.2;
+  }
+  .excur-name a {
+    color: inherit;
+    text-decoration: none;
+  }
+  .excur-name a:hover {
+    text-decoration: underline;
+  }
+  .excur-item.empty .excur-name { color: #ccc5b8; font-weight: 400; }
+
   /* ─── FOOTER ─── */
   footer {
     background: #5c3420;
@@ -511,6 +546,23 @@
     { label: 'Bd4', name: 'Dave & Teresa', start: new Date(2026, 4, 29), end: new Date(2026, 5,  6) },
   ];
 
+  // Excursion definitions: each entry maps a date to a name and optional link
+  const excurDefs = [
+    { date: new Date(2026, 4, 21), name: 'Matera', href: 'matera.html' },
+    { date: new Date(2026, 4, 22), name: 'Matera', href: 'matera.html' },
+  ];
+
+  function getExcursion(date) {
+    var dn = new Date(date.getFullYear(), date.getMonth(), date.getDate()).getTime();
+    for (var i = 0; i < excurDefs.length; i++) {
+      var ed = excurDefs[i].date;
+      if (new Date(ed.getFullYear(), ed.getMonth(), ed.getDate()).getTime() === dn) {
+        return excurDefs[i];
+      }
+    }
+    return null;
+  }
+
   const ostuniStart = new Date(2026, 4, 11);
   const ostuniEnd   = new Date(2026, 4, 31);
   const arezzStart  = new Date(2026, 5,  1);
@@ -570,6 +622,18 @@
           bedList.appendChild(item);
         });
         cell.appendChild(bedList);
+
+        // Excursion row
+        var excur = getExcursion(date);
+        var excurEl = document.createElement('div');
+        excurEl.className = 'excur-item' + (excur ? '' : ' empty');
+        var nameHtml = excur
+          ? '<a href="' + excur.href + '">' + excur.name + '</a>'
+          : '\u2014';
+        excurEl.innerHTML =
+          '<span class="excur-label">Excur</span>' +
+          '<span class="excur-name">' + nameHtml + '</span>';
+        cell.appendChild(excurEl);
       }
 
       container.appendChild(cell);
