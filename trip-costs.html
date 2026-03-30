@@ -1,0 +1,372 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italy 2026 — Trip Costs</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cormorant+SC:wght@300;400;600&family=Petit+Formal+Script&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream:      #faf7f0;
+    --parchment:  #f2ece0;
+    --warm-rule:  #ddd0b8;
+    --ink:        #2a2318;
+    --muted:      #7a6e60;
+    --sage:       #6b8c6e;
+    --terracotta: #c4714a;
+    --dusty-blue: #7a9bab;
+    --gold:       #b8892a;
+    --rule:       #d4c9b5;
+    --paper:      #f4efe6;
+  }
+
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: 'Source Serif 4', Georgia, serif;
+    background: var(--cream);
+    color: var(--ink);
+    font-size: 16px;
+    line-height: 1.6;
+  }
+
+  /* ─── SITE NAV ─── */
+  .site-nav {
+    background: #5c3420;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 24px;
+    border-bottom: 2px solid var(--gold);
+    flex-wrap: wrap;
+  }
+
+  .site-nav-home {
+    font-family: 'Cormorant SC', serif;
+    font-size: 13px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    color: rgba(250,247,242,0.9);
+    text-decoration: none;
+    padding: 14px 0;
+    white-space: nowrap;
+    transition: color 0.2s;
+  }
+  .site-nav-home:hover { color: var(--gold); }
+
+  .site-nav-links { display: flex; flex-wrap: wrap; }
+
+  .site-nav-links a {
+    font-family: 'Source Serif 4', serif;
+    font-size: 11px;
+    font-weight: 400;
+    letter-spacing: 0.16em;
+    text-transform: uppercase;
+    color: rgba(250,247,242,0.5);
+    text-decoration: none;
+    padding: 14px 18px;
+    position: relative;
+    transition: color 0.2s;
+  }
+  .site-nav-links a.active,
+  .site-nav-links a:hover { color: rgba(250,247,242,0.95); }
+  .site-nav-links a.active::after {
+    content: '';
+    position: absolute;
+    bottom: 0; left: 50%;
+    transform: translateX(-50%);
+    width: calc(100% - 24px);
+    height: 2px;
+    background: var(--gold);
+  }
+
+  /* ─── BANNER ─── */
+  .banner {
+    position: relative;
+    width: 100%;
+    height: 220px;
+    overflow: hidden;
+    background: #f5efe3;
+  }
+
+  .wc-scene { position: absolute; inset: 0; overflow: hidden; }
+
+  .wc-scene::before {
+    content: '';
+    position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 70% 20%, rgba(180,210,225,0.45) 0%, transparent 70%),
+      radial-gradient(ellipse 50% 40% at 20% 10%, rgba(210,225,195,0.3) 0%, transparent 60%),
+      radial-gradient(ellipse 100% 50% at 50% 100%, rgba(210,185,155,0.4) 0%, transparent 60%),
+      linear-gradient(170deg, #f0ece2 0%, #ede4d3 40%, #e8ddc8 100%);
+  }
+
+  .blob { position: absolute; filter: blur(1px); opacity: 0.18; }
+  .blob-1 { width:220px; height:180px; top:-20px; left:-30px; background:#8ab38c; border-radius:50% 60% 40% 70%/60% 40% 70% 50%; }
+  .blob-2 { width:160px; height:200px; top:10px; left:60px; background:#c4b98a; border-radius:40% 60% 55% 45%/55% 45% 65% 35%; }
+  .blob-3 { width:200px; height:150px; top:30px; right:20px; background:#9bbfcc; border-radius:55% 45% 40% 60%/40% 60% 45% 55%; }
+  .blob-4 { width:180px; height:160px; bottom:-10px; right:60px; background:#c4a882; border-radius:45% 55% 60% 40%/55% 45% 55% 45%; }
+  .blob-5 { width:140px; height:120px; bottom:20px; left:30%; background:#b8c9a0; border-radius:50% 50% 45% 55%/50% 50% 55% 45%; }
+
+  .hills { position:absolute; bottom:0; left:0; right:0; height:70px; }
+  .hills svg { width:100%; height:100%; }
+
+  .cypress { position:absolute; bottom:42px; border-radius:50% 50% 45% 45%; background:linear-gradient(to bottom,#5a7a5c,#4a6a4c); opacity:0.55; }
+  .cy-1 { left:4%;  height:80px;  width:12px; }
+  .cy-2 { left:6%;  height:100px; width:10px; bottom:44px; }
+  .cy-3 { left:8%;  height:68px;  width:11px; }
+  .cy-4 { right:8%; height:85px;  width:12px; }
+  .cy-5 { right:10%;height:72px;  width:10px; bottom:46px; }
+
+  .banner-vignette {
+    position:absolute; inset:0;
+    background:radial-gradient(ellipse 90% 90% at 50% 50%, transparent 55%, rgba(242,236,224,0.6) 100%);
+    pointer-events:none;
+  }
+
+  .banner-text {
+    position:absolute; inset:0;
+    display:flex; flex-direction:column; align-items:center; justify-content:center;
+    text-align:center; padding:20px; gap:0;
+    opacity:0; animation:fadeIn 1.2s ease 0.3s forwards;
+  }
+
+  .banner-eyebrow {
+    font-family:'Cormorant SC', serif;
+    font-size:10px; font-weight:400;
+    letter-spacing:0.22em; text-transform:uppercase;
+    color:var(--terracotta);
+    margin-bottom:10px;
+    text-shadow:0 1px 8px rgba(242,236,224,0.9);
+  }
+
+  .banner-title {
+    font-family:'Cormorant SC', serif;
+    font-weight:300;
+    font-size:clamp(34px, 6vw, 58px);
+    letter-spacing:0.1em;
+    color:var(--ink);
+    line-height:1.1;
+    text-shadow:0 1px 12px rgba(242,236,224,0.9), 0 0 30px rgba(242,236,224,0.7);
+  }
+
+  .banner-rule {
+    width:60px; height:1px;
+    background:linear-gradient(to right, transparent, var(--gold), transparent);
+    margin:12px auto 0;
+  }
+
+  /* ─── PAGE BODY ─── */
+  .page-body {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 48px 24px 80px;
+    opacity: 0;
+    animation: fadeUp 0.7s ease 0.8s forwards;
+  }
+
+  /* ─── INTRO SECTION ─── */
+  .intro-block {
+    text-align: center;
+    margin-bottom: 48px;
+  }
+
+  .intro-block p {
+    font-size: 18px;
+    font-weight: 300;
+    color: var(--muted);
+    line-height: 1.75;
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* ─── EDIT LINK ─── */
+  .edit-link-wrap {
+    text-align: center;
+    margin-bottom: 40px;
+  }
+
+  .edit-link {
+    display: inline-flex;
+    align-items: center;
+    gap: 10px;
+    font-family: 'Cormorant SC', serif;
+    font-size: 15px;
+    font-weight: 600;
+    letter-spacing: 0.08em;
+    color: white;
+    background: var(--sage);
+    text-decoration: none;
+    padding: 12px 28px;
+    border-radius: 6px;
+    transition: background 0.25s, transform 0.2s;
+    cursor: not-allowed;
+    opacity: 0.6;
+  }
+
+  .edit-link.active {
+    cursor: pointer;
+    opacity: 1;
+  }
+
+  .edit-link.active:hover {
+    background: #5a7a5c;
+    transform: translateY(-2px);
+  }
+
+  .edit-link-note {
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--muted);
+    margin-top: 10px;
+    font-style: italic;
+  }
+
+  /* ─── EMBED SECTION ─── */
+  .embed-section {
+    margin-bottom: 48px;
+  }
+
+  .embed-label {
+    font-family: 'Cormorant SC', serif;
+    font-size: 10px;
+    letter-spacing: 0.2em;
+    text-transform: uppercase;
+    color: var(--gold);
+    text-align: center;
+    margin-bottom: 18px;
+  }
+
+  .embed-wrap {
+    background: white;
+    border: 1px solid var(--warm-rule);
+    border-radius: 8px;
+    overflow: hidden;
+    box-shadow: 0 4px 20px rgba(42,35,24,0.06);
+  }
+
+  .embed-accent {
+    height: 4px;
+    background: linear-gradient(to right, var(--dusty-blue), var(--sage));
+  }
+
+  .embed-wrap iframe {
+    display: block;
+    width: 100%;
+    height: 720px;
+    border: none;
+  }
+
+  .embed-caption {
+    text-align: center;
+    padding: 14px 20px;
+    background: var(--parchment);
+    border-top: 1px solid var(--rule);
+    font-size: 13px;
+    font-weight: 300;
+    color: var(--muted);
+    font-style: italic;
+  }
+
+  /* ─── FOOTER ─── */
+  footer {
+    background: #5c3420;
+    color: rgba(250,247,240,0.4);
+    text-align: center;
+    padding: 24px;
+    font-family: 'Cormorant SC', serif;
+    font-size: 17px;
+    letter-spacing: 0.14em;
+  }
+
+  /* ─── ANIMATIONS ─── */
+  @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(20px);} to{opacity:1;transform:translateY(0);} }
+
+  @media (max-width:600px) {
+    .site-nav { padding: 0 12px; }
+    .site-nav-links a { padding: 12px 10px; font-size: 10px; }
+    .banner { height: 180px; }
+  }
+</style>
+</head>
+<body>
+
+<!-- ── SITE NAV ── -->
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-home">Italy 2026</a>
+  <div class="site-nav-links">
+    <a href="accommodations.html">Accommodations</a>
+    <a href="calendar.html">Calendar</a>
+    <a href="flights.html">Flights</a>
+    <a href="living.html">Living</a>
+    <a href="excursions.html">Excursions</a>
+    <a href="trip-costs.html" class="active">Trip Costs</a>
+  </div>
+</nav>
+
+<!-- ── BANNER ── -->
+<header class="banner">
+  <div class="wc-scene">
+    <div class="blob blob-1"></div>
+    <div class="blob blob-2"></div>
+    <div class="blob blob-3"></div>
+    <div class="blob blob-4"></div>
+    <div class="blob blob-5"></div>
+    <div class="cypress cy-1"></div>
+    <div class="cypress cy-2"></div>
+    <div class="cypress cy-3"></div>
+    <div class="cypress cy-4"></div>
+    <div class="cypress cy-5"></div>
+    <div class="hills">
+      <svg viewBox="0 0 1440 90" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,90 L0,55 Q80,20 160,40 Q240,58 320,35 Q400,12 480,30 Q560,48 640,28 Q720,8 800,32 Q880,55 960,38 Q1040,20 1120,42 Q1200,62 1280,45 Q1360,28 1440,50 L1440,90 Z" fill="rgba(139,160,120,0.22)"/>
+        <path d="M0,90 L0,68 Q100,42 200,58 Q300,72 400,52 Q500,32 600,55 Q700,75 800,60 Q900,44 1000,62 Q1100,78 1200,65 Q1320,50 1440,68 L1440,90 Z" fill="rgba(180,165,130,0.28)"/>
+      </svg>
+    </div>
+  </div>
+  <div class="banner-vignette"></div>
+  <div class="banner-text">
+    <div class="banner-eyebrow">Italy 2026</div>
+    <div class="banner-title">Trip Costs</div>
+    <div class="banner-rule"></div>
+  </div>
+</header>
+
+<!-- ── PAGE BODY ── -->
+<div class="page-body">
+
+  <div class="intro-block">
+    <p>Shared expenses, cost splits, and the fair share breakdown for our six weeks in Italy. The workbook tracks lodging, groceries, restaurants, and the wine tab — so no one has to do math on vacation.</p>
+  </div>
+
+  <!-- Edit in Excel Online button (inactive until link is ready) -->
+  <div class="edit-link-wrap">
+    <a href="#" class="edit-link" aria-disabled="true">
+      <span>📊</span>
+      <span>Open Workbook in Excel Online</span>
+    </a>
+    <div class="edit-link-note">Link will be activated once the workbook is ready for use</div>
+  </div>
+
+  <!-- Embedded workbook preview -->
+  <div class="embed-section">
+    <div class="embed-label">Workbook Preview</div>
+    <div class="embed-wrap">
+      <div class="embed-accent"></div>
+      <iframe scrolling="no" src="https://1drv.ms/x/c/4a27f873520782c0/IQT312h0J142SYw55LP1P0vfAc-oO48CfxqjbBNlGiEo2Qk?em=2&wdAllowInteractivity=False&wdHideGridlines=True&wdHideHeaders=True&wdInConfigurator=True&wdInConfigurator=True"></iframe>
+      <div class="embed-caption">Read-only preview — use the button above to edit in Excel Online</div>
+    </div>
+  </div>
+
+</div>
+
+<footer>
+  Italy 2026 &nbsp;&middot;&nbsp; Dave &amp; Mike &nbsp;&middot;&nbsp; Private Trip Planning Site
+</footer>
+
+</body>
+</html>

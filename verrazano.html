@@ -1,0 +1,496 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Italy 2026 — Castello di Verrazzano Overnight</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400&family=Cormorant+SC:wght@300;400;600&family=Playfair+Display:wght@400;700&family=Source+Serif+4:ital,wght@0,300;0,400;0,600;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --cream:       #faf7f0;
+    --parchment:   #f2ece0;
+    --warm-rule:   #ddd0b8;
+    --ink:         #2a2318;
+    --muted:       #7a6e60;
+    --sage:        #6b8c6e;
+    --terracotta:  #c4714a;
+    --dusty-blue:  #7a9bab;
+    --gold:        #b8892a;
+    --tuscany:     #4a7c5a;
+    --chianti:     #7a3520;
+  }
+
+  html { scroll-behavior: smooth; }
+  body { font-family: 'Source Serif 4', Georgia, serif; background: var(--cream); color: var(--ink); font-size: 17px; line-height: 1.65; }
+
+  /* ─── NAV ─── */
+  .site-nav { background: #5c3420; display: flex; align-items: center; justify-content: space-between; padding: 0 24px; border-bottom: 2px solid var(--gold); flex-wrap: wrap; }
+  .site-nav-home { font-family: 'Cormorant SC', serif; font-size: 13px; font-weight: 600; letter-spacing: 0.12em; color: rgba(250,247,242,0.9); text-decoration: none; padding: 14px 0; white-space: nowrap; transition: color 0.2s; }
+  .site-nav-home:hover { color: var(--gold); }
+  .site-nav-links { display: flex; flex-wrap: wrap; }
+  .site-nav-links a { font-family: 'Source Serif 4', serif; font-size: 11px; font-weight: 400; letter-spacing: 0.16em; text-transform: uppercase; color: rgba(250,247,242,0.5); text-decoration: none; padding: 14px 18px; position: relative; transition: color 0.2s; }
+  .site-nav-links a.active, .site-nav-links a:hover { color: rgba(250,247,242,0.95); }
+  .site-nav-links a.active::after { content: ''; position: absolute; bottom: 0; left: 50%; transform: translateX(-50%); width: calc(100% - 24px); height: 2px; background: var(--gold); }
+
+  /* ─── BANNER ─── */
+  .banner { position: relative; width: 100%; height: 220px; overflow: hidden; background: #f0e8e0; }
+  .wc-scene { position: absolute; inset: 0; overflow: hidden; }
+  .wc-scene::before { content: ''; position: absolute; inset: 0;
+    background:
+      radial-gradient(ellipse 80% 60% at 60% 20%, rgba(196,155,100,0.4) 0%, transparent 65%),
+      radial-gradient(ellipse 60% 50% at 15% 15%, rgba(180,140,100,0.3) 0%, transparent 60%),
+      radial-gradient(ellipse 100% 40% at 50% 100%, rgba(210,175,140,0.45) 0%, transparent 60%),
+      linear-gradient(165deg, #f2ebe0 0%, #ede0cc 45%, #e8d5b8 100%); }
+  .blob { position: absolute; filter: blur(1px); opacity: 0.18; }
+  .blob-1 { width:220px; height:175px; top:-18px; left:-28px; background:#9a7a5c; border-radius:50% 60% 40% 70%/60% 40% 70% 50%; }
+  .blob-2 { width:160px; height:200px; top:10px; left:58px; background:#c4a872; border-radius:40% 60% 55% 45%/55% 45% 65% 35%; }
+  .blob-3 { width:195px; height:148px; top:28px; right:18px; background:#b88858; border-radius:55% 45% 40% 60%/40% 60% 45% 55%; }
+  .blob-4 { width:178px; height:158px; bottom:-10px; right:58px; background:#c4a078; border-radius:45% 55% 60% 40%/55% 45% 55% 45%; }
+  .blob-5 { width:138px; height:118px; bottom:18px; left:33%; background:#a89868; border-radius:50% 50% 45% 55%; }
+  .hills { position:absolute; bottom:0; left:0; right:0; height:70px; }
+  .hills svg { width:100%; height:100%; }
+  .cypress { position:absolute; bottom:40px; border-radius:50% 50% 45% 45%; background:linear-gradient(to bottom,#5a7a5c,#4a6a4c); opacity:0.55; }
+  .cy-1 { left:4%;  height:80px;  width:12px; }
+  .cy-2 { left:6%;  height:102px; width:10px; bottom:42px; }
+  .cy-3 { left:8%;  height:68px;  width:11px; }
+  .cy-4 { right:8%; height:88px;  width:12px; }
+  .cy-5 { right:10%;height:72px;  width:10px; bottom:44px; }
+  .banner-vignette { position:absolute; inset:0; background:radial-gradient(ellipse 90% 90% at 50% 50%, transparent 55%, rgba(242,235,224,0.65) 100%); pointer-events:none; }
+  .banner-text { position:absolute; inset:0; display:flex; flex-direction:column; align-items:center; justify-content:center; text-align:center; padding:20px; opacity:0; animation:fadeIn 1.2s ease 0.3s forwards; }
+  .banner-eyebrow { font-family:'Cormorant SC', serif; font-size:13px; font-weight:400; letter-spacing:0.22em; text-transform:uppercase; color:var(--chianti); margin-bottom:8px; text-shadow:0 1px 8px rgba(242,235,224,0.9); }
+  .banner-title { font-family:'Cormorant SC', serif; font-weight:300; font-size:clamp(30px, 5.5vw, 54px); letter-spacing:0.1em; color:var(--ink); line-height:1.1; text-shadow:0 1px 12px rgba(242,235,224,0.9); }
+  .banner-subtitle { font-family:'Cormorant Garamond', serif; font-size:clamp(13px, 2vw, 17px); font-weight:300; font-style:italic; color:var(--muted); margin-top:6px; letter-spacing:0.06em; }
+  .banner-rule { width:60px; height:1px; background:linear-gradient(to right, transparent, var(--gold), transparent); margin:10px auto 0; }
+
+  /* ─── PAGE BODY ─── */
+  .page-body { max-width:860px; margin:0 auto; padding:48px 24px 80px; opacity:0; animation:fadeUp 0.7s ease 0.8s forwards; }
+  .back-link { display:inline-flex; align-items:center; gap:6px; font-family:'Cormorant SC', serif; font-size:13px; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); text-decoration:none; margin-bottom:28px; transition:color 0.2s; }
+  .back-link:hover { color:var(--chianti); }
+
+  /* ─── META ─── */
+  .itinerary-meta { background:var(--parchment); border:1px solid var(--warm-rule); border-left:4px solid var(--chianti); border-radius:8px; padding:22px 28px; margin-bottom:36px; display:grid; grid-template-columns:repeat(auto-fill, minmax(185px, 1fr)); gap:16px 24px; }
+  .meta-item-label { font-family:'Cormorant SC', serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--gold); margin-bottom:3px; }
+  .meta-item-value { font-size:14px; color:var(--ink); line-height:1.45; }
+  .meta-item-value em { color:var(--muted); }
+
+  /* ─── CONFIRMED BOOKINGS ─── */
+  .confirmed-box { background:#f0f7f2; border:1px solid #b0d4b8; border-left:4px solid var(--tuscany); border-radius:6px; padding:18px 22px; margin-bottom:36px; }
+  .confirmed-label { font-family:'Cormorant SC', serif; font-size:12px; letter-spacing:0.18em; text-transform:uppercase; color:var(--tuscany); margin-bottom:10px; }
+  .confirmed-items { display:flex; flex-direction:column; gap:8px; }
+  .confirmed-item { font-size:14px; line-height:1.6; color:var(--ink); display:flex; gap:10px; align-items:baseline; }
+  .confirmed-check { color:var(--tuscany); font-size:13px; flex-shrink:0; }
+  .confirmed-item a { color:#2C5F8A; text-decoration:none; font-weight:600; }
+  .confirmed-item a:hover { text-decoration:underline; }
+
+  /* ─── TRIP SUMMARY ─── */
+  .trip-summary { font-size:16px; line-height:1.8; color:var(--ink); background:rgba(255,255,255,0.55); border:1px solid var(--warm-rule); border-radius:6px; padding:20px 26px; margin-bottom:36px; }
+
+  /* ─── SECTION HEADERS ─── */
+  .section-eyebrow { font-family:'Cormorant SC', serif; font-size:13px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:6px; }
+  .section-title { font-family:'Playfair Display', serif; font-size:20px; font-weight:700; color:var(--ink); margin-bottom:20px; padding-bottom:10px; border-bottom:1px solid var(--warm-rule); }
+
+  /* ─── DAY HEADER ─── */
+  .day-header { background:var(--chianti); color:rgba(250,247,242,0.95); border-radius:6px; padding:10px 20px; margin:40px 0 24px; display:flex; align-items:baseline; gap:14px; flex-wrap:wrap; }
+  .day-label { font-family:'Cormorant SC', serif; font-size:16px; letter-spacing:0.14em; }
+  .day-subtitle { font-family:'Cormorant Garamond', serif; font-size:14px; font-style:italic; color:rgba(250,247,242,0.65); }
+
+  /* ─── ROUTE TABLE ─── */
+  .route-table-wrap { margin-bottom:12px; overflow-x:auto; }
+  .route-table { width:100%; border-collapse:collapse; font-size:14px; }
+  .route-table th { font-family:'Cormorant SC', serif; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:rgba(250,247,242,0.9); background:var(--chianti); padding:8px 14px; text-align:left; }
+  .route-table td { padding:8px 14px; border-bottom:1px solid var(--warm-rule); color:var(--ink); }
+  .route-table tr:nth-child(even) td { background:rgba(242,236,224,0.4); }
+  .route-table tr.total-row td { font-weight:600; background:rgba(184,137,42,0.08); border-top:2px solid var(--gold); }
+  .full-day-note { font-size:13px; font-style:italic; color:var(--muted); margin-top:8px; margin-bottom:32px; }
+
+  /* ─── MAP ─── */
+  .map-wrap { margin:24px 0 8px; border-radius:8px; overflow:hidden; border:1px solid var(--warm-rule); }
+  .map-wrap iframe { display:block; }
+  .map-link { display:inline-flex; align-items:center; gap:6px; margin:10px 0 32px; font-size:13px; color:var(--chianti); text-decoration:none; font-weight:600; }
+  .map-link:hover { color:var(--terracotta); text-decoration:underline; }
+
+  /* ─── TIME BLOCKS ─── */
+  .time-block { margin-bottom:32px; }
+  .time-block-header { display:flex; align-items:baseline; gap:14px; border-bottom:1px solid var(--warm-rule); padding-bottom:10px; margin-bottom:16px; flex-wrap:wrap; }
+  .time-label { font-family:'Cormorant Garamond', serif; font-size:15px; font-style:italic; color:var(--chianti); font-weight:600; flex-shrink:0; }
+  .time-block-title { font-family:'Playfair Display', serif; font-size:17px; font-weight:700; color:var(--ink); }
+  .time-block-sub { font-family:'Cormorant Garamond', serif; font-size:13px; font-style:italic; color:var(--muted); }
+
+  /* ─── BODY TEXT ─── */
+  .body-text { font-size:15px; line-height:1.75; color:var(--ink); margin-bottom:14px; }
+
+  /* ─── PARKING BOX ─── */
+  .parking-box { background:rgba(250,247,240,0.8); border:1px solid var(--warm-rule); border-radius:6px; padding:14px 18px; margin:16px 0; font-size:13px; line-height:1.6; color:var(--ink); }
+  .parking-box-label { font-family:'Cormorant SC', serif; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--muted); margin-bottom:5px; }
+  .parking-box a { color:#2C5F8A; text-decoration:none; font-weight:600; font-size:12px; }
+
+  /* ─── HIGHLIGHT (dinner) ─── */
+  .dinner-box { background:var(--ink); color:var(--cream); border-radius:8px; padding:28px 32px; margin:20px 0 32px; }
+  .dinner-eyebrow { font-family:'Cormorant SC', serif; font-size:10px; letter-spacing:0.2em; text-transform:uppercase; color:var(--gold); margin-bottom:8px; }
+  .dinner-box h3 { font-family:'Playfair Display', serif; font-size:20px; font-weight:700; color:white; margin-bottom:12px; }
+  .dinner-box p { font-size:15px; font-weight:300; color:rgba(250,247,242,0.82); line-height:1.75; margin-bottom:16px; }
+  .dinner-box p:last-child { margin-bottom:0; }
+  .dinner-grid { display:grid; grid-template-columns:repeat(auto-fill, minmax(195px, 1fr)); gap:12px; margin-top:16px; }
+  .dinner-item { background:rgba(255,255,255,0.07); border-radius:4px; padding:12px 16px; }
+  .dinner-item-label { font-family:'Cormorant SC', serif; font-size:10px; letter-spacing:0.14em; text-transform:uppercase; color:var(--gold); margin-bottom:4px; }
+  .dinner-item-val { font-size:13px; color:rgba(250,247,242,0.85); line-height:1.5; }
+  .dinner-book-link { display:inline-flex; align-items:center; gap:6px; margin-top:18px; font-family:'Cormorant SC', serif; font-size:13px; letter-spacing:0.12em; color:var(--gold); text-decoration:none; border:1px solid rgba(184,137,42,0.4); border-radius:4px; padding:7px 16px; transition:background 0.2s; }
+  .dinner-book-link:hover { background:rgba(184,137,42,0.12); }
+
+  /* ─── PRO TIP ─── */
+  .pro-tip { background:var(--parchment); border:1px solid var(--warm-rule); border-left:4px solid var(--tuscany); border-radius:6px; padding:14px 20px; margin:14px 0; font-size:14px; line-height:1.65; color:var(--ink); }
+  .pro-tip-label { font-family:'Cormorant SC', serif; font-size:12px; letter-spacing:0.16em; text-transform:uppercase; color:var(--tuscany); margin-bottom:5px; }
+
+  /* ─── OPTION CARDS ─── */
+  .option-cards { display:flex; flex-direction:column; gap:12px; margin:16px 0 24px; }
+  .option-card { background:white; border:1px solid var(--warm-rule); border-radius:6px; padding:16px 20px; display:flex; gap:14px; align-items:flex-start; }
+  .option-card-num { font-family:'Cormorant SC', serif; font-size:18px; color:var(--gold); font-weight:600; flex-shrink:0; line-height:1; margin-top:2px; }
+  .option-card-body { flex:1; }
+  .option-card-title { font-family:'Playfair Display', serif; font-size:15px; font-weight:700; color:var(--ink); margin-bottom:5px; }
+  .option-card-dist { font-size:11px; font-weight:600; letter-spacing:0.08em; text-transform:uppercase; color:var(--chianti); margin-bottom:5px; }
+  .option-card-desc { font-size:14px; line-height:1.6; color:var(--muted); }
+
+  /* ─── QUICK REF ─── */
+  .quick-ref-wrap { margin:10px 0 40px; overflow-x:auto; }
+  .quick-ref { width:100%; border-collapse:collapse; font-size:14px; }
+  .quick-ref th { font-family:'Cormorant SC', serif; font-size:12px; letter-spacing:0.14em; text-transform:uppercase; color:rgba(250,247,242,0.9); background:#5c3420; padding:8px 14px; text-align:left; }
+  .quick-ref td { padding:9px 14px; border-bottom:1px solid var(--warm-rule); color:var(--ink); vertical-align:top; }
+  .quick-ref tr:nth-child(even) td { background:rgba(242,236,224,0.35); }
+  .quick-ref td:first-child { font-weight:600; white-space:nowrap; width:200px; }
+  .quick-ref td a { color:#2C5F8A; text-decoration:none; font-weight:600; }
+
+  .stop-divider { border:none; border-top:1px solid var(--warm-rule); margin:40px 0; }
+  .itinerary-footer-note { font-size:12px; color:var(--muted); font-style:italic; text-align:center; padding-top:24px; border-top:1px solid var(--warm-rule); line-height:1.8; }
+
+  footer { background:#5c3420; border-top:1px solid rgba(255,255,255,0.08); padding:22px 24px; text-align:center; font-family:'Cormorant SC', serif; font-size:17px; letter-spacing:0.14em; color:rgba(250,247,242,0.35); }
+  footer a { color:inherit; text-decoration:none; }
+  footer a:hover { color:var(--gold); }
+
+  @keyframes fadeIn { from{opacity:0;} to{opacity:1;} }
+  @keyframes fadeUp { from{opacity:0;transform:translateY(16px);} to{opacity:1;transform:translateY(0);} }
+
+  @media (max-width:600px) {
+    .site-nav { padding:0 16px; }
+    .site-nav-links a { padding:12px 10px; font-size:10px; }
+    .banner { height:190px; }
+    .itinerary-meta { grid-template-columns:1fr 1fr; }
+    .dinner-grid { grid-template-columns:1fr; }
+    .dinner-box { padding:20px 18px; }
+  }
+</style>
+</head>
+<body>
+
+<nav class="site-nav">
+  <a href="index.html" class="site-nav-home">← Italy 2026</a>
+  <div class="site-nav-links">
+    <a href="accommodations.html">🏡 Accommodations</a>
+    <a href="calendar.html">📅 Calendar</a>
+    <a href="flights.html">✈ Flights</a>
+    <a href="living.html">🍷 Living Like an Italian</a>
+    <a href="excursions.html" class="active">🗺 Day Excursions</a>
+  </div>
+</nav>
+
+<header class="banner">
+  <div class="wc-scene">
+    <div class="blob blob-1"></div><div class="blob blob-2"></div><div class="blob blob-3"></div>
+    <div class="blob blob-4"></div><div class="blob blob-5"></div>
+    <div class="cypress cy-1"></div><div class="cypress cy-2"></div>
+    <div class="cypress cy-3"></div><div class="cypress cy-4"></div><div class="cypress cy-5"></div>
+    <div class="hills">
+      <svg viewBox="0 0 1440 70" preserveAspectRatio="none" xmlns="http://www.w3.org/2000/svg">
+        <path d="M0,70 L0,42 Q80,15 160,32 Q240,48 320,28 Q400,8 480,24 Q560,40 640,22 Q720,4 800,26 Q880,46 960,32 Q1040,16 1120,34 Q1200,52 1280,38 Q1360,22 1440,40 L1440,70 Z" fill="rgba(139,100,70,0.2)"/>
+        <path d="M0,70 L0,54 Q100,34 200,48 Q300,60 400,42 Q500,24 600,44 Q700,62 800,50 Q900,36 1000,52 Q1100,66 1200,54 Q1320,40 1440,56 L1440,70 Z" fill="rgba(180,145,110,0.25)"/>
+      </svg>
+    </div>
+  </div>
+  <div class="banner-vignette"></div>
+  <div class="banner-text">
+    <div class="banner-eyebrow">June 6–7, 2026 · Chianti Classico</div>
+    <div class="banner-title">Verrazzano</div>
+    <div class="banner-subtitle">Greve in Chianti · Overnight</div>
+    <div class="banner-rule"></div>
+  </div>
+</header>
+
+<div class="page-body">
+
+  <a href="excursions.html" class="back-link">← Back to Day Excursions</a>
+
+  <!-- META -->
+  <div class="itinerary-meta">
+    <div><div class="meta-item-label">Dates</div><div class="meta-item-value">Sat Jun 6 – Sun Jun 7, 2026</div></div>
+    <div><div class="meta-item-label">Travelers</div><div class="meta-item-value">Dave · Mike · Jane · Chuck</div></div>
+    <div><div class="meta-item-label">Hotel</div><div class="meta-item-value">Albergo Casa Al Sole · 2 rooms</div></div>
+    <div><div class="meta-item-label">Dinner</div><div class="meta-item-value">Cena in Fattoria · 18:30 · €75/pp</div></div>
+    <div><div class="meta-item-label">From Villa</div><div class="meta-item-value">~70 km · ~1 hr 15 min</div></div>
+    <div><div class="meta-item-label">Departure</div><div class="meta-item-value"><em>After breakfast — no rush</em></div></div>
+  </div>
+
+  <!-- CONFIRMED BOOKINGS -->
+  <div class="confirmed-box">
+    <div class="confirmed-label">✓ Confirmed Bookings</div>
+    <div class="confirmed-items">
+      <div class="confirmed-item">
+        <span class="confirmed-check">✓</span>
+        <span><strong>Albergo Casa Al Sole</strong> — 2 rooms, Sat Jun 6 · Viale Vittorio Veneto 82, Greve in Chianti</span>
+      </div>
+      <div class="confirmed-item">
+        <span class="confirmed-check">✓</span>
+        <span><strong>Cena in Fattoria</strong> — Sat Jun 6 at 18:30 · Castello di Verrazzano · booked via <a href="https://book.verrazzano.com/tours?lang=en" target="_blank">book.verrazzano.com</a></span>
+      </div>
+    </div>
+  </div>
+
+  <!-- TRIP SUMMARY -->
+  <div class="trip-summary">
+    A relaxed overnight into the heart of Chianti Classico country. Leave the Arezzo villa after a proper Saturday morning — coffee, no rush — and arrive in Greve in Chianti by late morning in time for the Saturday market in Piazza Matteotti, a wander through the arcaded square, and lunch. The evening is the centerpiece: a three-hour guided dinner at Castello di Verrazzano — the 16th-century estate of the Florentine explorer who discovered New York Harbor — with the estate's wines, cellars, and a full Tuscan table. Sunday is unhurried: breakfast at the hotel, optional Panzano detour, and back to the villa by midday.
+  </div>
+
+  <!-- ROUTE -->
+  <div class="section-eyebrow">Driving</div>
+  <div class="section-title">Route at a Glance</div>
+  <div class="route-table-wrap">
+    <table class="route-table">
+      <thead><tr><th>Leg</th><th>From → To</th><th>Distance</th><th>Drive Time</th></tr></thead>
+      <tbody>
+        <tr><td>Sat morning</td><td>Arezzo Villa → Greve in Chianti</td><td>~70 km</td><td>~1 hr 15 min</td></tr>
+        <tr><td>Sat evening</td><td>Hotel → Castello di Verrazzano</td><td>~5 km</td><td>~10 min</td></tr>
+        <tr><td>Sun midday</td><td>Greve in Chianti → Arezzo Villa</td><td>~70 km</td><td>~1 hr 15 min</td></tr>
+        <tr class="total-row"><td colspan="2"><strong>Round Trip</strong></td><td><strong>~145 km</strong></td><td><strong>~2 hr 40 min driving</strong></td></tr>
+      </tbody>
+    </table>
+  </div>
+  <p class="full-day-note">Route: SR 69 south from Figline Valdarno into the Chianti hills · scenic approach through vineyards</p>
+
+  <!-- MAP -->
+  <div class="section-eyebrow">Greve in Chianti</div>
+  <div class="section-title">Map</div>
+  <div class="map-wrap">
+    <iframe width="100%" height="340" frameborder="0" scrolling="no"
+      src="https://www.openstreetmap.org/export/embed.html?bbox=11.2600%2C43.5600%2C11.3400%2C43.6000&layer=mapnik&marker=43.5830%2C11.3100"
+      style="display:block;"></iframe>
+  </div>
+  <a href="https://www.google.com/maps/dir/Pergine+Valdarno,+AR/Greve+in+Chianti,+FI/Castello+di+Verrazzano,+Via+Citille,+Greve+in+Chianti+FI/Pergine+Valdarno,+AR" target="_blank" class="map-link">📍 Open Full Route in Google Maps →</a>
+
+  <hr class="stop-divider">
+
+
+  <!-- ═══════════ SATURDAY ═══════════ -->
+  <div class="day-header">
+    <span class="day-label">Saturday, June 6</span>
+    <span class="day-subtitle">Market · Chianti · Cena in Fattoria</span>
+  </div>
+
+  <div class="time-block">
+    <div class="time-block-header">
+      <span class="time-label">~9:30–10:30 AM</span>
+      <span class="time-block-title">Depart Arezzo Villa</span>
+      <span class="time-block-sub">— after breakfast and coffee</span>
+    </div>
+    <p class="body-text">No alarm. Saturday morning at the villa: coffee, whatever's in the kitchen, and leave when you're ready. The goal is Greve by around 11–11:30 so there's time for the market before it winds down. The SR 69 route through Figline Valdarno is a beautiful drive — Chianti hills begin opening up once you cross north of the Arno.</p>
+  </div>
+
+  <div class="time-block">
+    <div class="time-block-header">
+      <span class="time-label">~11:00–11:30 AM</span>
+      <span class="time-block-title">Arrive Greve — Park &amp; Walk to Piazza</span>
+    </div>
+    <p class="body-text">Greve is a small town — you won't get lost. Park near the hotel (Viale Vittorio Veneto 82) and walk the short distance to Piazza Matteotti.</p>
+    <div class="parking-box">
+      <div class="parking-box-label">🅿 Parking — One Car</div>
+      <strong>Public parking, Viale Vittorio Veneto area</strong> — steps from the hotel. ~€2/hr. The town is small; the main lot is clearly marked off the Viale. No ZTL in Greve.
+      &nbsp;<a href="https://www.google.com/maps/place/Greve+in+Chianti,+Metropolitan+City+of+Florence" target="_blank">Google Maps →</a>
+    </div>
+    <div class="pro-tip">
+      <div class="pro-tip-label">💡 Check In</div>
+      Standard check-in at Casa Al Sole is 2pm. Leave bags at the hotel on arrival and pick up your keys later — the staff are accommodating and the hotel is small and informal.
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-block-header">
+      <span class="time-label">~11:30 AM</span>
+      <span class="time-block-title">Saturday Market — Piazza Matteotti</span>
+    </div>
+    <p class="body-text">The Saturday morning market fills Piazza Matteotti regularly throughout the year — produce, local cheese, salumi, bread, and seasonal goods from the farms of the Chianti. The square itself is worth the trip regardless: a distinctive triangular piazza ringed by deep stone arcades, with shops and cantinas tucked under the loggias selling wine, olive oil, and ceramics. Arrive by 11:30 to catch the market while it's still lively.</p>
+    <p class="body-text"><strong>Enoteca Falorni</strong> sits right on the piazza — one of the best wine shops in Chianti, with a tasting room and an exceptional selection of Chianti Classico from small producers. Worth stepping in even if you buy nothing. This is the real thing, not a tourist operation.</p>
+  </div>
+
+  <div class="time-block">
+    <div class="time-block-header">
+      <span class="time-label">~1:00 PM</span>
+      <span class="time-block-title">Lunch in Greve or Panzano</span>
+    </div>
+    <p class="body-text">Two good options depending on appetite and mood:</p>
+    <div class="option-cards">
+      <div class="option-card">
+        <div class="option-card-num">A</div>
+        <div class="option-card-body">
+          <div class="option-card-title">Stay in Greve</div>
+          <div class="option-card-dist">In town · 0 min</div>
+          <div class="option-card-desc">Greve has a handful of honest restaurants around the piazza. Lunch in the shade of the arcades with a carafe of local Chianti is exactly right. Keep it light — there's a serious dinner ahead at 18:30.</div>
+        </div>
+      </div>
+      <div class="option-card">
+        <div class="option-card-num">B</div>
+        <div class="option-card-body">
+          <div class="option-card-title">Panzano in Chianti — Dario Cecchini</div>
+          <div class="option-card-dist">~8 km south · 15 min</div>
+          <div class="option-card-desc">Chianti's most famous butcher — Dario Cecchini quotes Dante while carving some of the best meat in Tuscany. <strong>Dario DOC</strong> does informal communal-table lunch; <strong>Solociccia</strong> is the full-on carnivore sit-down. Book ahead. The village of Panzano itself is charming and very quiet. Bear in mind you have a large dinner tonight — Dario DOC is the more sensible choice in that context.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-block-header">
+      <span class="time-label">~3:00 – 5:30 PM</span>
+      <span class="time-block-title">Afternoon — Wander &amp; Rest</span>
+    </div>
+    <p class="body-text">The afternoon is deliberately open. Check into the hotel, sit in the piazza with a coffee, or make the short drive up to <strong>Montefioralle</strong> — a tiny fortified medieval hamlet perched on the hill above Greve, just 1 km from town. It's almost completely unvisited (a few dozen residents), with a small Romanesque church, intact stone walls, and vineyard views in every direction. Takes 30 minutes to walk around; worth every one of them.</p>
+  </div>
+
+  <div class="time-block">
+    <div class="time-block-header">
+      <span class="time-label">~18:20</span>
+      <span class="time-block-title">Depart Hotel for Castello di Verrazzano</span>
+    </div>
+    <p class="body-text">The castle is approximately 5 km from the hotel — about 10 minutes. Leave by 18:20 to arrive comfortably ahead of the 18:30 start. The estate road winds through vineyards; it's well-marked from the SP 49/Greve direction.</p>
+    <div class="parking-box">
+      <div class="parking-box-label">🅿 Castello di Verrazzano</div>
+      <strong>Via Citille, 50022 Greve in Chianti</strong> — the estate has ample on-site parking. Follow signs from town toward Citille/Verrazzano.
+      &nbsp;<a href="https://www.google.com/maps/place/Castello+di+Verrazzano,+Greve+in+Chianti" target="_blank">Google Maps →</a>
+    </div>
+  </div>
+
+  <!-- CENA IN FATTORIA -->
+  <div class="dinner-box">
+    <div class="dinner-eyebrow">Confirmed · Sabato · 18:30 · ~3 Hours · €75/person</div>
+    <h3>🍷 Cena in Fattoria — Castello di Verrazzano</h3>
+    <p>A guided evening on a working Chianti Classico estate whose family name belongs to history: Giovanni da Verrazzano, the Florentine explorer who sailed for François I of France and first mapped New York Harbor in 1524, was born here. The estate has been producing wine continuously since the 16th century.</p>
+    <p>The evening begins with a guided tour through the Renaissance gardens and the aging cellars built into the hillside below the castle, followed by Spumante on the panoramic terrace. Dinner is a traditional Tuscan spread — charcuterie, pasta with wild boar, Florentine T-bone, seasonal sides, and dolce — served with a full flight of the estate's wines.</p>
+    <div class="dinner-grid">
+      <div class="dinner-item">
+        <div class="dinner-item-label">Time</div>
+        <div class="dinner-item-val">18:30 · duration ~3 hours</div>
+      </div>
+      <div class="dinner-item">
+        <div class="dinner-item-label">Price</div>
+        <div class="dinner-item-val">€75/person · all-inclusive</div>
+      </div>
+      <div class="dinner-item">
+        <div class="dinner-item-label">Tour</div>
+        <div class="dinner-item-val">Renaissance gardens · hillside aging cellars · Spumante on terrace</div>
+      </div>
+      <div class="dinner-item">
+        <div class="dinner-item-label">Menu</div>
+        <div class="dinner-item-val">PDO Tuscan ham · wild boar salami · finocchiona · crostino · pasta al cinghiale · bistecca · seasonal sides · cantuccini &amp; Vin Santo</div>
+      </div>
+      <div class="dinner-item">
+        <div class="dinner-item-label">Wines</div>
+        <div class="dinner-item-val">IGT Toscana · Chianti Classico DOCG · Chianti Classico Riserva · Special selection · Vinsanto · Grappa Verrazzano</div>
+      </div>
+      <div class="dinner-item">
+        <div class="dinner-item-label">Status</div>
+        <div class="dinner-item-val">✓ Booked · 4 guests · Jun 6</div>
+      </div>
+    </div>
+    <a href="https://book.verrazzano.com/tours?lang=en" target="_blank" class="dinner-book-link">View booking confirmation →</a>
+  </div>
+
+  <p class="body-text" style="margin-top:4px;">Dinner ends around 21:30. It's 10 minutes back to the hotel. The evening closes itself.</p>
+
+  <hr class="stop-divider">
+
+
+  <!-- ═══════════ SUNDAY ═══════════ -->
+  <div class="day-header">
+    <span class="day-label">Sunday, June 7</span>
+    <span class="day-subtitle">Breakfast · Wander · Return to Arezzo</span>
+  </div>
+
+  <div class="time-block">
+    <div class="time-block-header">
+      <span class="time-label">Morning</span>
+      <span class="time-block-title">Breakfast at Casa Al Sole</span>
+    </div>
+    <p class="body-text">Breakfast is included at the hotel. No rush — this is the whole point of an overnight. The drive back to the Arezzo villa is 1 hr 15 min, so a midday departure puts you home in plenty of time for the afternoon.</p>
+  </div>
+
+  <div class="time-block">
+    <div class="time-block-header">
+      <span class="time-label">~9:30 – 11:00 AM</span>
+      <span class="time-block-title">Sunday Morning Options</span>
+    </div>
+    <div class="option-cards">
+      <div class="option-card">
+        <div class="option-card-num">A</div>
+        <div class="option-card-body">
+          <div class="option-card-title">Greve Piazza &amp; Enoteca Falorni</div>
+          <div class="option-card-dist">In town · 0 min</div>
+          <div class="option-card-desc">Sunday morning in Piazza Matteotti is quieter than Saturday — a good thing. Enoteca Falorni opens at 9:00 AM. Good for a bottle or two to bring back to the villa, or just a final espresso under the arcades before departure. <em>Note: the 4th Sunday organic market falls on June 28 — not this weekend.</em></div>
+        </div>
+      </div>
+      <div class="option-card">
+        <div class="option-card-num">B</div>
+        <div class="option-card-body">
+          <div class="option-card-title">Panzano in Chianti — Morning</div>
+          <div class="option-card-dist">~8 km · 15 min</div>
+          <div class="option-card-desc">If you skipped Panzano on Saturday, Sunday morning is ideal — the village is sleepy and beautiful before the day visitors arrive. Dario Cecchini's shop opens at 10:00 AM. Pick up some tonno del Chianti (slow-cooked pork) or finocchiona to bring back to the villa.</div>
+        </div>
+      </div>
+      <div class="option-card">
+        <div class="option-card-num">C</div>
+        <div class="option-card-body">
+          <div class="option-card-title">Montefioralle (if skipped Saturday)</div>
+          <div class="option-card-dist">~1 km above Greve · 5 min</div>
+          <div class="option-card-desc">The tiny fortified village above Greve. A Sunday morning walk through an essentially unchanged medieval hamlet — walls, towers, vines, views. Very quiet. Thirty minutes well spent before the drive south.</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="time-block">
+    <div class="time-block-header">
+      <span class="time-label">~11:30 AM – Noon</span>
+      <span class="time-block-title">Depart for Arezzo Villa</span>
+    </div>
+    <p class="body-text">Check out of Casa Al Sole (checkout by 11:00 — ask about a late 11:30 if needed) and head south on SR 69 through Figline Valdarno. You're back at the villa by ~12:45–1:00 PM with the whole Sunday afternoon still ahead.</p>
+  </div>
+
+  <hr class="stop-divider">
+
+  <!-- QUICK REFERENCE -->
+  <div class="section-eyebrow">At a Glance</div>
+  <div class="section-title">Quick Reference</div>
+  <div class="quick-ref-wrap">
+    <table class="quick-ref">
+      <thead><tr><th>Item</th><th>Details</th></tr></thead>
+      <tbody>
+        <tr><td>Hotel</td><td><strong>Albergo Casa Al Sole</strong> · Viale Vittorio Veneto 82, 50022 Greve in Chianti · 2 rooms confirmed</td></tr>
+        <tr><td>Parking</td><td>Public lot near hotel (Viale Vittorio Veneto) · ~€2/hr · no ZTL in Greve · estate parking at Verrazzano is free</td></tr>
+        <tr><td>Dinner</td><td><strong>Cena in Fattoria</strong> · Castello di Verrazzano · Sat Jun 6 · 18:30 · €75/pp · ✓ booked · <a href="https://book.verrazzano.com/tours?lang=en" target="_blank">book.verrazzano.com</a></td></tr>
+        <tr><td>Greve Market</td><td>Saturday mornings · Piazza Matteotti · regular weekly market · arrive by 11:30</td></tr>
+        <tr><td>Enoteca Falorni</td><td>Piazza Matteotti · excellent Chianti Classico selection · tasting room · opens ~9:00 AM</td></tr>
+        <tr><td>Panzano</td><td>~8 km south · 15 min · Dario Cecchini butcher &amp; restaurants · good Sat lunch or Sun morning stop</td></tr>
+        <tr><td>Montefioralle</td><td>~1 km above Greve · tiny medieval village · 30-min walk · vineyard views · nearly no tourists</td></tr>
+        <tr><td>Drive to Villa</td><td>~70 km · ~1 hr 15 min · SR 69 via Figline Valdarno</td></tr>
+      </tbody>
+    </table>
+  </div>
+
+  <p class="itinerary-footer-note">Castello di Verrazzano · Via Citille, 50022 Greve in Chianti &nbsp;·&nbsp; verrazzano.com &nbsp;·&nbsp; Booking confirmed via book.verrazzano.com<br>Albergo Casa Al Sole · Viale Vittorio Veneto 82, Greve in Chianti &nbsp;·&nbsp; italy.daveandmike.net</p>
+
+</div><!-- /page-body -->
+
+<footer>
+  <a href="index.html">Italy 2026</a> &nbsp;·&nbsp; Castello di Verrazzano &nbsp;·&nbsp; June 6–7 &nbsp;·&nbsp; <a href="excursions.html">← Day Excursions</a>
+</footer>
+
+</body>
+</html>
