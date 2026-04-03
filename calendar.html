@@ -554,6 +554,8 @@
     { date: new Date(2026, 5,  3), name: 'Montepulciano',   href: 'montepulciano.html' },
     { date: new Date(2026, 5,  6), name: 'Verrazzano',      href: 'verrazano.html' },
     { date: new Date(2026, 5,  7), name: 'Verrazzano',      href: 'verrazano.html' },
+    { date: new Date(2026, 5, 13), name: 'Forte di Marmi' },
+    { date: new Date(2026, 5, 14), name: 'Forte di Marmi' },
   ];
 
   function getExcursion(date) {
@@ -632,7 +634,7 @@
         var excurEl = document.createElement('div');
         excurEl.className = 'excur-item' + (excur ? '' : ' empty');
         var nameHtml = excur
-          ? '<a href="' + excur.href + '">' + excur.name + '</a>'
+          ? (excur.href ? '<a href="' + excur.href + '">' + excur.name + '</a>' : excur.name)
           : '\u2014';
         excurEl.innerHTML =
           '<span class="excur-label">Exc</span>' +
