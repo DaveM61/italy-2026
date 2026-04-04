@@ -183,48 +183,6 @@
     margin: 0 auto;
   }
 
-  /* ─── EDIT LINK ─── */
-  .edit-link-wrap {
-    text-align: center;
-    margin-bottom: 40px;
-  }
-
-  .edit-link {
-    display: inline-flex;
-    align-items: center;
-    gap: 10px;
-    font-family: 'Cormorant SC', serif;
-    font-size: 15px;
-    font-weight: 600;
-    letter-spacing: 0.08em;
-    color: white;
-    background: var(--sage);
-    text-decoration: none;
-    padding: 12px 28px;
-    border-radius: 6px;
-    transition: background 0.25s, transform 0.2s;
-    cursor: not-allowed;
-    opacity: 0.6;
-  }
-
-  .edit-link.active {
-    cursor: pointer;
-    opacity: 1;
-  }
-
-  .edit-link.active:hover {
-    background: #5a7a5c;
-    transform: translateY(-2px);
-  }
-
-  .edit-link-note {
-    font-size: 13px;
-    font-weight: 300;
-    color: var(--muted);
-    margin-top: 10px;
-    font-style: italic;
-  }
-
   /* ─── SQUARE UP TABLE ─── */
   .squareup-section { margin-bottom: 48px; }
 
@@ -428,15 +386,6 @@
     <p>Shared expenses, cost splits, and the fair share breakdown for our six weeks in Italy. The workbook tracks lodging, groceries, restaurants, and the wine tab — so no one has to do math on vacation.</p>
   </div>
 
-  <!-- Open Workbook button -->
-  <div class="edit-link-wrap">
-    <a href="https://1drv.ms/x/c/4a27f873520782c0/IQApl1cjuXObTqpQutf5CJesARqagLPVIH5ftfeuHxkuawo?e=bbTUgF" class="edit-link active" target="_blank" rel="noopener">
-      <span>📊</span>
-      <span>Open Workbook in Excel Online</span>
-    </a>
-    <div class="edit-link-note">Opens in Excel Online — sign in with your Microsoft account to edit</div>
-  </div>
-
   <!-- Square Up reconciliation table -->
   <div class="squareup-section">
     <div class="squareup-label">Trip Reconciliation — Running Balance</div>
@@ -499,16 +448,6 @@
         }) + ' at ' + d.toLocaleTimeString('en-US', {
           hour: 'numeric', minute: '2-digit'
         });
-      }
-
-      // Check if all values are zero (trip hasn't started)
-      const hasData = data.participants && data.participants.some(p =>
-        p.totalOwed !== 0 || p.paid !== 0 || p.paymentsMade !== 0 || p.balanceDue !== 0
-      );
-
-      if (!hasData) {
-        tbody.innerHTML = '<tr><td colspan="10" class="table-empty">Expenses not yet recorded — check back once the trip is underway.</td></tr>';
-        return;
       }
 
       // Currency formatter — shows — for zero, otherwise $X,XXX.XX
