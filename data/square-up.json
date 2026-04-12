@@ -1,42 +1,42 @@
 {
   "tripName": "Italy 2026",
-  "lastUpdated": "2026-04-04T17:44:07.966Z",
+  "lastUpdated": "2026-04-04T17:47:55.875Z",
   "participants": [
     {
       "name": "Dave M",
       "lodging": 0,
       "groceries": 0,
       "alcohol": 0,
-      "restaurants": 34.08,
+      "restaurants": 0,
       "other": 0,
-      "totalOwed": -68.17,
-      "paid": 102.25,
+      "totalOwed": 0,
+      "paid": 0,
       "paymentsMade": 0,
-      "balanceDue": -68.17
+      "balanceDue": 0
     },
     {
       "name": "Mike",
       "lodging": 0,
       "groceries": 0,
       "alcohol": 0,
-      "restaurants": 34.08,
+      "restaurants": 0,
       "other": 0,
-      "totalOwed": 34.08,
+      "totalOwed": 0,
       "paid": 0,
       "paymentsMade": 0,
-      "balanceDue": 34.08
+      "balanceDue": 0
     },
     {
       "name": "Mary",
       "lodging": 0,
       "groceries": 0,
       "alcohol": 0,
-      "restaurants": 34.08,
+      "restaurants": 0,
       "other": 0,
-      "totalOwed": 34.08,
+      "totalOwed": 0,
       "paid": 0,
       "paymentsMade": 0,
-      "balanceDue": 34.08
+      "balanceDue": 0
     },
     {
       "name": "Jane",
